@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co6kuexqmp8cf"
-path="res://.godot/imported/jauge.png-bdb656235b643a31e6a45046635418b3.ctex"
+path="res://.godot/imported/jauge.png-eb3d5a577d22c93f70a5051b0cf39a5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/controllers/jauge.png"
-dest_files=["res://.godot/imported/jauge.png-bdb656235b643a31e6a45046635418b3.ctex"]
+source_file="res://art/atomic_petanque/controllers/jauge.png"
+dest_files=["res://.godot/imported/jauge.png-eb3d5a577d22c93f70a5051b0cf39a5d.ctex"]
 
 [params]
 

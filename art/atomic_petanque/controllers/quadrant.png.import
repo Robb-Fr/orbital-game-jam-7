@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdnw3jl3cmydl"
-path="res://.godot/imported/quadrant.png-0cb4e1eddb21135b709e79244c8a78db.ctex"
+path="res://.godot/imported/quadrant.png-fe17e22f5f5ffa6698c462f39221f1ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/controllers/quadrant.png"
-dest_files=["res://.godot/imported/quadrant.png-0cb4e1eddb21135b709e79244c8a78db.ctex"]
+source_file="res://art/atomic_petanque/controllers/quadrant.png"
+dest_files=["res://.godot/imported/quadrant.png-fe17e22f5f5ffa6698c462f39221f1ff.ctex"]
 
 [params]
 

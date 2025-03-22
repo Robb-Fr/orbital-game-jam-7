@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3ctuysb32qt2"
-path="res://.godot/imported/space.png-242346924e4b90dddd7f2e9a78fbe1db.ctex"
+path="res://.godot/imported/space.png-d67d4794ffc91b34f6284e8e9027a625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/space.png"
-dest_files=["res://.godot/imported/space.png-242346924e4b90dddd7f2e9a78fbe1db.ctex"]
+source_file="res://art/atomic_petanque/stadium/space.png"
+dest_files=["res://.godot/imported/space.png-d67d4794ffc91b34f6284e8e9027a625.ctex"]
 
 [params]
 
