@@ -5,9 +5,9 @@ var characters = [
 	["Oliv", "res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png"],
 	["Patoche", "res://art/atomic_petanque/players/patoche_au_bob.png"],
 	["Nico", "res://art/atomic_petanque/players/nico_la_gaypride.png"]
-	]
+]
 
-signal selected_character(index: int)
+signal selected_character(name: String, texture_url: String)
 
 @export var current_char = 0
 
@@ -27,4 +27,5 @@ func _on_change_character_pressed():
 func _on_select_character_pressed():
 	$HBoxContainer/SelectCharacter.disabled = true
 	$HBoxContainer/ChangeCharacter.disabled = true
-	selected_character.emit(current_char)
+	#print_debug("Emitting {0} and {1}".format([characters[current_char][0], characters[current_char][1]]))
+	selected_character.emit(characters[current_char][0], characters[current_char][1])
