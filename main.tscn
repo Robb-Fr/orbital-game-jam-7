@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bw3t5xdmv30bk"]
+[gd_scene load_steps=9 format=4 uid="uid://bw3t5xdmv30bk"]
 
 [ext_resource type="Script" uid="uid://l34884ob8da7" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://vj23itvatyoj" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://qq0urb56kb1o" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cjhl5ye6w3xtj" path="res://arena.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://3ctuysb32qt2" path="res://art/atomic_petanque/stadium/space.png" id="4_7mycd"]
-[ext_resource type="Texture2D" uid="uid://cu4msejg5jvtb" path="res://art/atomic_petanque/stadium/grass.jpg" id="5_lquwl"]
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
@@ -26,15 +25,11 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
 [node name="Grass" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(568.5, 290.5)
-scale = Vector2(0.260667, 0.154)
-texture = ExtResource("5_lquwl")
+position = Vector2(645.5, 338.5)
+scale = Vector2(0.294889, 0.175333)
 
-[node name="Space" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(584, 275)
-texture = ExtResource("4_7mycd")
+[node name="Arena" parent="." instance=ExtResource("3_lquwl")]
+position = Vector2(646, 341)
 
 [node name="Player1" parent="." instance=ExtResource("1_ig7tw")]
 
@@ -45,8 +40,8 @@ texture = ExtResource("4_7mycd")
 [node name="Player4" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="MobPath" type="Path2D" parent="."]
-position = Vector2(-6.88018, 10.4193)
-scale = Vector2(1.21907, 0.864672)
+position = Vector2(-12.3408, 7.73125)
+scale = Vector2(1.31714, 0.928419)
 curve = SubResource("Curve2D_ig7tw")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
@@ -60,11 +55,7 @@ visible = false
 stream = SubResource("AudioStreamOggVorbis_lquwl")
 parameters/looping = true
 
-[node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
-
 [connection signal="hit" from="Player1" to="." method="game_over"]
 [connection signal="hit" from="Player2" to="." method="game_over"]
 [connection signal="hit" from="Player3" to="." method="game_over"]
 [connection signal="hit" from="Player4" to="." method="game_over"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
