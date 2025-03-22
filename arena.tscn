@@ -1,16 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjhl5ye6w3xtj"]
+[gd_scene load_steps=6 format=3 uid="uid://cjhl5ye6w3xtj"]
 
 [ext_resource type="Script" uid="uid://n1fhm6clfc4l" path="res://arena.gd" id="1_444vf"]
-[ext_resource type="Texture2D" uid="uid://3ctuysb32qt2" path="res://art/atomic_petanque/stadium/space.png" id="1_ubfh8"]
+[ext_resource type="Texture2D" uid="uid://buxbopkylnu4d" path="res://art/atomic_petanque/stadium/circle.png" id="2_444vf"]
+[ext_resource type="Script" uid="uid://dwyuf7thw578o" path="res://arena_collision_player.gd" id="3_27ga2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_444vf"]
-radius = 127.03
+radius = 127.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27ga2"]
+radius = 105.0
 
 [node name="Arena" type="Area2D"]
 script = ExtResource("1_444vf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ubfh8")
+texture = ExtResource("2_444vf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_444vf")
+
+[node name="ArenaCollisionPlayer" type="Area2D" parent="."]
+script = ExtResource("3_27ga2")
+
+[node name="CollisionShapePlayer" type="CollisionShape2D" parent="ArenaCollisionPlayer"]
+shape = SubResource("CircleShape2D_27ga2")
