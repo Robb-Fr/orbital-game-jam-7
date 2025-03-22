@@ -1,17 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://7asofadfxl1i"]
+[gd_scene load_steps=7 format=3 uid="uid://7asofadfxl1i"]
 
 [ext_resource type="FontFile" uid="uid://b00c3n5argown" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://bfqmjnbve3osf" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="PackedScene" uid="uid://6vo508oj4fra" path="res://character_select.tscn" id="2_8sq4i"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
-action = &"start_game"
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8sq4i"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
+device = -1
+keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_8sq4i"]
-events = [SubResource("InputEventAction_64ctp")]
+events = [SubResource("InputEventKey_8sq4i")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_8sq4i")
 
 [node name="HeaderMessage" type="Label" parent="."]
 anchors_preset = 5
@@ -71,9 +82,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
+offset_left = -256.0
+offset_top = -136.0
+offset_right = 256.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -109,6 +121,7 @@ current_char = 2
 layout_mode = 2
 current_char = 3
 
+[connection signal="all_player_selected" from="." to="." method="_on_all_player_selected"]
 [connection signal="new_player_selected" from="." to="." method="_on_new_player_selected"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

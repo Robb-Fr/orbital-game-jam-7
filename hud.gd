@@ -23,7 +23,6 @@ func update_score(score):
 	$ScoreLabel.text = str(score)
 
 func _on_start_button_pressed():
-	
 	$StartButton.hide()
 	$Message.hide()
 	$PlayerSelects.show()
@@ -49,5 +48,8 @@ func _on_new_player_selected(player_index, character_index):
 	if not selected_characters.has(-1):
 		all_player_selected.emit(selected_characters)
 		print_debug("Selected characters array: " + str(selected_characters))
-		$HeaderMessage.hide()
-		$PlayerSelects.queue_free()
+
+func _on_all_player_selected(player):
+	$HeaderMessage.hide()
+	$PlayerSelects.queue_free()
+	$Background.hide()
