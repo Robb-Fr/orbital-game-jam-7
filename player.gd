@@ -76,8 +76,8 @@ func _process(delta):
 	ethanol = clamp(ethanol - ethanol_decrease * ethanol_decrease_rate, 0, 100)
 	
 	var res = 1 #lol
-	print_debug(ethanol)
-	print_debug(res)
+	#print_debug(ethanol)
+	#print_debug(res)
 
 func _on_stadium_entered():
 	match isFacing:

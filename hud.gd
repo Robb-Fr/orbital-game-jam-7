@@ -22,6 +22,7 @@ func update_score(score):
 	$ScoreLabel.text = str(score)
 
 func _on_start_button_pressed():
+	
 	$StartButton.hide()
 	$Message.hide()
 	$PlayerSelects.show()

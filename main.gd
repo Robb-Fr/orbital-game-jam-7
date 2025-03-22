@@ -4,7 +4,7 @@ extends Node
 var nb_players = 2
 
 func _ready():
-	pass
+	new_game()
 	
 func game_over():
 	$Music.stop()

@@ -26,29 +26,23 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
 [node name="Grass" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(568.5, 290.5)
 scale = Vector2(0.260667, 0.154)
 texture = ExtResource("5_lquwl")
 
 [node name="Space" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(584, 275)
 texture = ExtResource("4_7mycd")
 
 [node name="Player1" parent="." instance=ExtResource("1_ig7tw")]
-speed = 400
-controller_nb = 0
 
 [node name="Player2" parent="." instance=ExtResource("1_ig7tw")]
-speed = 400
-controller_nb = 0
 
 [node name="Player3" parent="." instance=ExtResource("1_ig7tw")]
-speed = 400
-controller_nb = 0
 
 [node name="Player4" parent="." instance=ExtResource("1_ig7tw")]
-speed = 400
-controller_nb = 0
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2(-6.88018, 10.4193)
@@ -57,9 +51,10 @@ curve = SubResource("Curve2D_ig7tw")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(58.9633, 50.4015)
-rotation = -0.00942471
+rotation = -0.00942476
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_lquwl")
