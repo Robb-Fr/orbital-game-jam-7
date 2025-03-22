@@ -1,17 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://7asofadfxl1i"]
+[gd_scene load_steps=7 format=3 uid="uid://7asofadfxl1i"]
 
 [ext_resource type="FontFile" uid="uid://b00c3n5argown" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://bfqmjnbve3osf" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="PackedScene" uid="uid://6vo508oj4fra" path="res://character_select.tscn" id="2_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://c1m3sbukojmvy" path="res://art/atomic_petanque/backgrounds/background_orange.png" id="3_640wx"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
-action = &"start_game"
+[sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
+device = -1
+keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_8sq4i"]
-events = [SubResource("InputEventAction_64ctp")]
+events = [SubResource("InputEventKey_8sq4i")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
+select_player_scene = ExtResource("2_8sq4i")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_640wx")
 
 [node name="HeaderMessage" type="Label" parent="."]
 anchors_preset = 5
@@ -71,9 +82,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
+offset_left = -256.0
+offset_top = -136.0
+offset_right = 256.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -94,25 +106,6 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SelectPlayer1" parent="PlayerSelects" instance=ExtResource("2_8sq4i")]
-layout_mode = 2
-
-[node name="SelectPlayer2" parent="PlayerSelects" instance=ExtResource("2_8sq4i")]
-layout_mode = 2
-current_char = 1
-
-[node name="SelectPlayer3" parent="PlayerSelects" instance=ExtResource("2_8sq4i")]
-layout_mode = 2
-current_char = 2
-
-[node name="SelectPlayer4" parent="PlayerSelects" instance=ExtResource("2_8sq4i")]
-layout_mode = 2
-current_char = 3
-
-[connection signal="new_player_selected" from="." to="." method="_on_new_player_selected"]
+[connection signal="all_players_selected" from="." to="." method="_on_all_players_selected"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="selected_character" from="PlayerSelects/SelectPlayer1" to="." method="_on_select_player_1_selected_character"]
-[connection signal="selected_character" from="PlayerSelects/SelectPlayer2" to="." method="_on_select_player_2_selected_character"]
-[connection signal="selected_character" from="PlayerSelects/SelectPlayer3" to="." method="_on_select_player_3_selected_character"]
-[connection signal="selected_character" from="PlayerSelects/SelectPlayer4" to="." method="_on_select_player_4_selected_character"]
