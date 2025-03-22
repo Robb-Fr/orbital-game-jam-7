@@ -1,25 +1,32 @@
 extends Node
 
 @export var mob_scene: PackedScene
-var score
+var nb_players = 2
 
 func _ready():
-	pass
+	new_game()
 	
 func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	
+func gen_start_position():
+	var mob_spawn_location = $MobPath/MobSpawnLocation
+	mob_spawn_location.progress_ratio = randf() # clamp to screen - margin
+	return mob_spawn_location.position 
 
+func init_player_controller():
+	$Player1.controller_nb = 0
+	$Player2.controller_nb = 1
+	$Player3.controller_nb = 2
+	$Player4.controller_nb = 3
+	
 func new_game():
-	score = 0
-	$Player.start($StartPosition.position)
-	$StartTimer.start()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
-	get_tree().call_group("mobs", "queue_free")
+	init_player_controller()
+	$Player1.start(gen_start_position())
+	$Player2.start(gen_start_position())
+	#$Player3.start(gen_start_position())
+	#$Player4.start(gen_start_position())
 	$Music.play()
 
 func _on_mob_timer_timeout():
@@ -46,11 +53,3 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-
-func _on_score_timer_timeout():
-	score += 1
-	$HUD.update_score(score)
-
-func _on_start_timer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()
