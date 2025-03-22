@@ -1,10 +1,10 @@
 extends Control
 
 var characters = [
-	["Gégé", "res://art/atomic_petanque/gégé_moustache_de_feu.png"],
-	["Oliv", "res://art/atomic_petanque/oliv_chaussettes_deparaillees.png"],
-	["Patoche", "res://art/atomic_petanque/patoche_au_bob.png"],
-	["Nico", "res://art/atomic_petanque/nico_la_gaypride.png"]
+	["Gégé", "res://art/atomic_petanque/players/gégé_moustache_de_feu.png"],
+	["Oliv", "res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png"],
+	["Patoche", "res://art/atomic_petanque/players/patoche_au_bob.png"],
+	["Nico", "res://art/atomic_petanque/players/nico_la_gaypride.png"]
 	]
 
 signal selected_character(index: int)

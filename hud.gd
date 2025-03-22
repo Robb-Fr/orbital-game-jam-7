@@ -1,12 +1,13 @@
 extends CanvasLayer
 
-signal start_game
+# Notifies `Main` node that the button has been pressed
 signal all_player_selected(player: Array[int])
 signal new_player_selected(player_index: int, character_index: int)
 
 var selected_characters = [-1, -1, -1, -1]
 
 func _ready():
+	$HeaderMessage.hide()
 	$PlayerSelects.hide()
 	$ScoreLabel.hide()
 
@@ -26,13 +27,10 @@ func _on_start_button_pressed():
 	$StartButton.hide()
 	$Message.hide()
 	$PlayerSelects.show()
+	$HeaderMessage.show()
 
 func _on_message_timer_timeout():
 	$Message.hide()
-
-func _on_all_player_selected():
-	$CharacterSelectionList.hide()
-	all_player_selected.emit()
 
 func _on_select_player_1_selected_character(index):
 	new_player_selected.emit(0, index)
@@ -51,4 +49,5 @@ func _on_new_player_selected(player_index, character_index):
 	if not selected_characters.has(-1):
 		all_player_selected.emit(selected_characters)
 		print_debug("Selected characters array: " + str(selected_characters))
+		$HeaderMessage.hide()
 		$PlayerSelects.queue_free()
