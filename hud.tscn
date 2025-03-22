@@ -109,7 +109,6 @@ current_char = 2
 layout_mode = 2
 current_char = 3
 
-[connection signal="all_player_selected" from="." to="." method="_on_all_player_selected"]
 [connection signal="new_player_selected" from="." to="." method="_on_new_player_selected"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
