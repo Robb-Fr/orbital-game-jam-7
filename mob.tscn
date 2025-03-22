@@ -1,12 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://qq0urb56kb1o"]
+[gd_scene load_steps=10 format=3 uid="uid://cm16myty1jyg0"]
 
-[ext_resource type="Script" uid="uid://ci5xqocy832tu" path="res://mob.gd" id="1_dy6sc"]
 [ext_resource type="Texture2D" uid="uid://bikkovipmsnb" path="res://art/dodge_the_creeps/enemyFlyingAlt_1.png" id="2_1qmh0"]
 [ext_resource type="Texture2D" uid="uid://dgfs1sioeat6a" path="res://art/dodge_the_creeps/enemyFlyingAlt_2.png" id="3_gfurk"]
 [ext_resource type="Texture2D" uid="uid://df4pq16riq740" path="res://art/dodge_the_creeps/enemySwimming_1.png" id="4_ieysi"]
 [ext_resource type="Texture2D" uid="uid://cgxk0n68ujutx" path="res://art/dodge_the_creeps/enemySwimming_2.png" id="5_cixyi"]
 [ext_resource type="Texture2D" uid="uid://bebc0btvo2i0w" path="res://art/dodge_the_creeps/enemyWalking_1.png" id="6_7ulmv"]
 [ext_resource type="Texture2D" uid="uid://xx7eub8lbmvu" path="res://art/dodge_the_creeps/enemyWalking_2.png" id="7_pcqmr"]
+
+[sub_resource type="GDScript" id="GDScript_b3mxk"]
+script/source = "extends RigidBody2D
+
+func _ready():
+	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
+	$AnimatedSprite2D.animation = mob_types.pick_random()
+	$AnimatedSprite2D.play()
+	
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jbnni"]
 animations = [{
@@ -51,7 +62,7 @@ height = 80.0
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_dy6sc")
+script = SubResource("GDScript_b3mxk")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
