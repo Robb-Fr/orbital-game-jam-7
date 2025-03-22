@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpqyqgr7php2f"
-path="res://.godot/imported/gégé_moustache_de_feu.png-e5fa23d111bdf72f455212a4fbfd968d.ctex"
+uid="uid://cpk47toj2vaoc"
+path="res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/gégé_moustache_de_feu.png"
-dest_files=["res://.godot/imported/gégé_moustache_de_feu.png-e5fa23d111bdf72f455212a4fbfd968d.ctex"]
+source_file="res://art/atomic_petanque/boules/Boule1_a.png"
+dest_files=["res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"]
 
 [params]
 

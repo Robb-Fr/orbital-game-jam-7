@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://binf4rnhjchdo"
-path="res://.godot/imported/nico_la_gaypride.png-d0662787767a2b29210f3d8a8850de47.ctex"
+path="res://.godot/imported/nico_la_gaypride.png-a2613967ba8649f358ac397fa80dd36f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/nico_la_gaypride.png"
-dest_files=["res://.godot/imported/nico_la_gaypride.png-d0662787767a2b29210f3d8a8850de47.ctex"]
+source_file="res://art/atomic_petanque/players/nico_la_gaypride.png"
+dest_files=["res://.godot/imported/nico_la_gaypride.png-a2613967ba8649f358ac397fa80dd36f.ctex"]
 
 [params]
 
