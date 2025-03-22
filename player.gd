@@ -1,26 +1,29 @@
-extends Area2D
+class_name player extends Area2D
 
 enum positionEnum {RIGHT, LEFT, DOWN, UP}
 
 signal hit
 
+@export var MAX_ETHANOL = 10.0 					# [0;10]
+@export var ETHANOL_DECREASE_PER_TICK = 0.01	# float
+@export var ETHANOL_PERFECT_RANGE = 5			# int
+@export var DILATATION_FACTOR = 2				# int
+
 @export var speed = 400
 @export var controller_nb: int
-@export var ethanol_decrease = 10
-@export var ethanol_perfect = 5
+@export var ethanol_range = 1.5 				# float
+@export var ethanol_decrease_buff = 0.0 		# [0;1]
+# TODO: implement below features
+@export var precision: float					# ???
+@export var increasedSpeed: float				# ???
+@export var imperturbability: float				# ???
 
 var screen_size
 var sprite_size
-var isFacing: positionEnum
 var half_sprite_size = 100
-
-# GAMING VARS
-var ethanol: float
-var ethanol_decrease_rate: float # depends on the addiction status
-var perfect_state_range: float # depends on the addiction status
-var precision: float
-var increasedSpeed: float
-var imperturbability: float
+var isFacing: positionEnum
+var current_ethanol: float
+var range_ratio: float
 
 func start(pos):
 	position = pos
@@ -31,11 +34,8 @@ func start(pos):
 func _ready():
 	screen_size = get_viewport_rect().size
 	isFacing = positionEnum.RIGHT
-	
-	ethanol = 50
-	ethanol_decrease_rate = 0.1
-	perfect_state_range = 2
-	
+	range_ratio = 1.0
+	current_ethanol = 5.0 # FIXME: remove this
 	hide()
 
 func _process(delta):
@@ -72,12 +72,8 @@ func _process(delta):
 		$PlayerSprite.flip_v = velocity.y > 0
 		
 	# STATE MANAGEMENT
-	# TODO: implement this
-	ethanol = clamp(ethanol - ethanol_decrease * ethanol_decrease_rate, 0, 100)
-	
-	var res = 1 #lol
-	#print_debug(ethanol)
-	#print_debug(res)
+	current_ethanol = clamp(current_ethanol - ETHANOL_DECREASE_PER_TICK / (1.0 - ethanol_decrease_buff), 0, MAX_ETHANOL)
+	range_ratio = 1 / (1 + abs(current_ethanol - ETHANOL_PERFECT_RANGE) ** 2)
 
 func _on_stadium_entered():
 	match isFacing:
@@ -93,13 +89,15 @@ func _on_stadium_entered():
 	updateRangeSize()
 	
 func updateRangeSize():
-	return # TODO implement this with the alcool
+	$Range.transform
 	
 func _on_stadium_exit():
 	$Power.visible = false
 	$Range.visible = false
-			
-func _on_body_entered(body):
-	hide()
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if (area is arena):
+		print_debug('this is an arena')
+	if (area is player):
+		print_debug('this is a player')

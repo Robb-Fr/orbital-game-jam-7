@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjhl5ye6w3xtj"]
+
+[ext_resource type="Script" uid="uid://n1fhm6clfc4l" path="res://arena.gd" id="1_444vf"]
+[ext_resource type="Texture2D" uid="uid://3ctuysb32qt2" path="res://art/atomic_petanque/stadium/space.png" id="1_ubfh8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_444vf"]
+radius = 127.03
+
+[node name="Arena" type="Area2D"]
+script = ExtResource("1_444vf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ubfh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_444vf")
