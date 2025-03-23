@@ -54,14 +54,14 @@ func _on_player_4_thrown_cochon(controller_type: String, pos: Vector2, dir: Vect
 	_on_thrown_cochon(controller_type, pos, dir, pow)
 
 
-#func _on_body_entered(body: Node2D) -> void:
-	#if ("Player" in body.name):
-		#var sprite = body.get_node("Hint")
-		#if sprite:
-			#sprite.set_visible(true)
+func _on_body_entered(body: Node2D) -> void:
+	if ("Player" in body.name):
+		var sprite = body.get_node("Hint")
+		if sprite:
+			sprite.set_visible(true)
 
-#func _on_body_exited(body: Node2D) -> void:
-	#if ("Player" in body.name):
-		#var sprite = body.get_node("Hint")
-		#if sprite:
-			#sprite.set_visible(false)
+func _on_body_exited(body: Node2D) -> void:
+	if ("Player" in body.name):
+		var sprite = body.get_node("Hint")
+		if sprite:
+			sprite.set_visible(false)

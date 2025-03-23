@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjhl5ye6w3xtj"]
+[gd_scene load_steps=6 format=3 uid="uid://cjhl5ye6w3xtj"]
 
 [ext_resource type="Script" uid="uid://n1fhm6clfc4l" path="res://arena.gd" id="1_444vf"]
-[ext_resource type="Texture2D" uid="uid://buxbopkylnu4d" path="res://art/atomic_petanque/stadium/circle.png" id="2_444vf"]
 [ext_resource type="PackedScene" uid="uid://b7sgrdipromhg" path="res://boule.tscn" id="2_h0wof"]
 [ext_resource type="PackedScene" uid="uid://cwq2e3kxdoykp" path="res://cochon.tscn" id="3_fu4bq"]
 
@@ -17,7 +16,6 @@ boule_scene = ExtResource("2_h0wof")
 cochon_scene = ExtResource("3_fu4bq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_444vf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_444vf")
