@@ -1,20 +1,25 @@
-[gd_scene load_steps=19 format=3 uid="uid://do5bc0hsfwnd5"]
+[gd_scene load_steps=24 format=3 uid="uid://cnypm5petiu8j"]
 
 [ext_resource type="Script" uid="uid://ue6rtb8v40fu" path="res://chug.gd" id="1_dxvyv"]
-[ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/Patoche walking/patoche-1.png" id="2_5rk26"]
-[ext_resource type="Texture2D" uid="uid://cpqyqgr7php2f" path="res://art/atomic_petanque/players/gégé_moustache_de_feu.png" id="3_qu5w2"]
-[ext_resource type="Texture2D" uid="uid://dxe5a5u13ip81" path="res://art/atomic_petanque/Patoche walking/patoche-2.png" id="3_xlhos"]
-[ext_resource type="Texture2D" uid="uid://b7x8644of6si0" path="res://art/atomic_petanque/Patoche walking/patoche-3.png" id="4_lpyk3"]
-[ext_resource type="Texture2D" uid="uid://binf4rnhjchdo" path="res://art/atomic_petanque/players/nico_la_gaypride.png" id="4_xh6so"]
-[ext_resource type="Texture2D" uid="uid://cyfr4xw1fehlx" path="res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png" id="5_hisil"]
+[ext_resource type="Texture2D" uid="uid://mg1b4rt40etr" path="res://art/atomic_petanque/players/sprite_gg/gege-1.png" id="3_ooy8a"]
+[ext_resource type="Texture2D" uid="uid://bt3r6rkq863dn" path="res://art/atomic_petanque/players/sprite_gg/gege-2.png" id="4_h4x1h"]
+[ext_resource type="Texture2D" uid="uid://dl7ayjt0soc8a" path="res://art/atomic_petanque/players/sprite_gg/gege-3.png" id="5_00rei"]
 [ext_resource type="Texture2D" uid="uid://b3glrh7waawmc" path="res://art/atomic_petanque/Pastis-1.png" id="5_xlhos"]
 [ext_resource type="AudioStream" uid="uid://buf2jfy34ja8j" path="res://art/sons/Glouglou - 22.03.25 23.57.mp3" id="6_uffwh"]
+[ext_resource type="Texture2D" uid="uid://b1vbp4tk5yyaa" path="res://art/atomic_petanque/players/sprite_nico/nico-1.png" id="6_wd74o"]
+[ext_resource type="Texture2D" uid="uid://b1tu7chxrkd0b" path="res://art/atomic_petanque/players/sprite_nico/nico-2.png" id="7_kj68c"]
 [ext_resource type="AudioStream" uid="uid://bo2isplav3t7t" path="res://art/sons/502231__doktoraudio__burp56.wav" id="7_whnba"]
+[ext_resource type="Texture2D" uid="uid://cu0avppy5abjt" path="res://art/atomic_petanque/players/sprite_oliv/olivier-1.png" id="8_mdoqn"]
 [ext_resource type="Texture2D" uid="uid://21ss41user36" path="res://art/atomic_petanque/Sunset.png" id="8_whnba"]
+[ext_resource type="Texture2D" uid="uid://c6ej8wwfglh0u" path="res://art/atomic_petanque/players/sprite_oliv/olivier-2.png" id="9_3rh1m"]
 [ext_resource type="Texture2D" uid="uid://dc1dyy2w8rxqg" path="res://art/atomic_petanque/countdown/Countdown3.png" id="9_irmjv"]
 [ext_resource type="Texture2D" uid="uid://d6i72wk478b2" path="res://art/atomic_petanque/countdown/Countdown2.png" id="10_fbv2u"]
+[ext_resource type="Texture2D" uid="uid://d28sswvx3w8sr" path="res://art/atomic_petanque/players/sprite_oliv/olivier-3.png" id="10_vko4a"]
 [ext_resource type="Texture2D" uid="uid://cwo86l2d08yxq" path="res://art/atomic_petanque/countdown/Countdown1.png" id="11_irmjv"]
+[ext_resource type="Texture2D" uid="uid://sojijb0aedel" path="res://art/atomic_petanque/players/sprite_patoche/patoche-1.png" id="11_jb8fk"]
+[ext_resource type="Texture2D" uid="uid://5qu7pcm7j6t4" path="res://art/atomic_petanque/players/sprite_patoche/patoche-2.png" id="12_hystp"]
 [ext_resource type="AudioStream" uid="uid://b356gocbsm81i" path="res://art/sons/counting - 23.03.25 00.52.mp3" id="12_irmjv"]
+[ext_resource type="Texture2D" uid="uid://d2g3etx5gjo1y" path="res://art/atomic_petanque/players/sprite_patoche/patoche-3.png" id="13_78n55"]
 [ext_resource type="Texture2D" uid="uid://sabbf22aub2n" path="res://art/atomic_petanque/countdown/CountdownBuvez.png" id="15_xh6so"]
 [ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="17_hisil"]
 
@@ -22,7 +27,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qu5w2")
+"texture": ExtResource("3_ooy8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h4x1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_00rei")
 }],
 "loop": true,
 "name": &"Gégé",
@@ -30,7 +41,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_xh6so")
+"texture": ExtResource("6_wd74o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kj68c")
 }],
 "loop": true,
 "name": &"Nico",
@@ -38,7 +52,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_hisil")
+"texture": ExtResource("8_mdoqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3rh1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vko4a")
 }],
 "loop": true,
 "name": &"Oliv",
@@ -46,13 +66,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5rk26")
+"texture": ExtResource("11_jb8fk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xlhos")
+"texture": ExtResource("12_hystp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_lpyk3")
+"texture": ExtResource("13_78n55")
 }],
 "loop": true,
 "name": &"Patoche",

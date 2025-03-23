@@ -102,7 +102,6 @@ func _process(delta):
 		$Classement.visible = true
 		$Button.visible = true
 	
-
 func update_glass_sprite(controller_nb,score):
 	var glass_sprite = get_node("Glass"+str((controller_nb)))
 	# Ensure it's a Sprite2D node
@@ -158,6 +157,7 @@ func _start_scene():
 	$Countdown.start()
 	
 func _on_hud_start_minigame() -> void:
+	print('starting')
 	_start_scene()# Replace with function body.
 
 func _on_hud_all_players_selected_bis(characters: Array) -> void:
