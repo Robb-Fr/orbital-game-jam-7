@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhewrtv5lor2s"
+path="res://.godot/imported/Bruit ambiance jeu - 23.03.25 14.49.mp3-fa443ef7ef0f8632b5e23a31a2b17e98.mp3str"
+
+[deps]
+
+source_file="res://art/sons/Bruit ambiance jeu - 23.03.25 14.49.mp3"
+dest_files=["res://.godot/imported/Bruit ambiance jeu - 23.03.25 14.49.mp3-fa443ef7ef0f8632b5e23a31a2b17e98.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
