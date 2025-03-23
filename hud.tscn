@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6vo508oj4fra" path="res://character_select.tscn" id="2_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://21ss41user36" path="res://art/atomic_petanque/Sunset.png" id="3_1xsix"]
 [ext_resource type="Texture2D" uid="uid://b2klmxp3l1vj8" path="res://art/atomic_petanque/backgrounds/Welcome page .png" id="3_a2258"]
-[ext_resource type="AudioStream" uid="uid://ba6c5457sy3ie" path="res://art/sons/Karaoké Patrick Sébastien Les sardines.mp3" id="5_a2258"]
+[ext_resource type="AudioStream" uid="uid://bhewrtv5lor2s" path="res://art/sons/Bruit ambiance jeu - 23.03.25 14.49.mp3" id="6_1xsix"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
 device = -1
@@ -155,7 +155,7 @@ theme_override_font_sizes/font_size = 48
 text = "Enter"
 
 [node name="Musique_festive" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_a2258")
+stream = ExtResource("6_1xsix")
 volume_db = -7.893
 
 [connection signal="all_players_selected" from="." to="." method="_on_all_players_selected"]
