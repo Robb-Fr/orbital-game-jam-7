@@ -1,22 +1,5 @@
 extends Node2D
 
-<<<<<<< HEAD
-@export var controller_nb: int
-const MAX_CLICKS = 30
-const CLICKS_PER_STAGE = 10
-##Test without signals but just like it
-var characters = [1,2,3,0]
-
-##Other constant need to clean
-var characters_name = ["Gégé", "Oliv","Patoche","Nico"]
-var timer_start=true
-var can_click = false
-var finished = [0,1,1,1]
-var classement = []
-var player_sprite = []  # Tableau pour stocker les sprites des joueurs
-var player_glasses = []  # Tableau pour stocker les sprites des verres
-var score = 0
-=======
 const MAX_CLICKS = 30
 const CLICKS_PER_STAGE = 10
 ##Test without signals but just like it
@@ -38,7 +21,6 @@ var score_0 = 0
 var score_1 = 0
 var score_2 = 0
 var score_3 = 0
->>>>>>> 806bad380081aa42ed6c396e4d208a1b2af50da9
 # Liste des textures pour le verre
 var glass_textures = [
 	preload("res://art/atomic_petanque/Pastis-1.png"),
@@ -51,44 +33,6 @@ var glass_textures = [
 ]
 
 func _ready():
-<<<<<<< HEAD
-	$Counting.play()
-	for i in range (0,4):
-		if characters[i]==-1:
-			get_node("Player"+str(i)).visible=false
-			get_node("Glass"+str(i)).visible=false
-		else:
-			var player_name= get_node("Player"+str(i))
-			print_debug(player_name)
-			player_name.play(characters_name[characters[i]])
-	# Cache les sprites au début
-	$"3".visible = false
-	$"2".visible = false
-	$"1".visible = false
-	$"Buvez!".visible = false
-	
-	$Countdown.start()
-
-func _process(delta):
-	if can_click and Input.is_action_just_pressed("ui_accept"):
-		score += 1
-	if can_click and Input.is_action_just_pressed("ui_accept"):
-		score += 1
-	update_glass_sprite(controller_nb, score)
-	if score >=MAX_CLICKS and finished[controller_nb]==0:
-		#$Burp.play()
-		get_node("Glass"+str(controller_nb)).visible=false
-		classement.append(controller_nb)
-		finished[controller_nb] = 1
-	if finished == [1, 1, 1, 1]:
-		$Glouglou.stop()
-# Affiche les sprites X et Y
-		get_node("Player"+str(controller_nb)).visible = false
-		get_node("Glass"+str(controller_nb)).visible = false
-		$Bg.visible = false
-		
-		$Classement.text = "Classement: \n 1. Player"+str(classement[0])
-=======
 	print_debug("weshx2")
 	var scene_a = get_node("HUD")  # Change selon ta structure
 	# Connecte SceneB au signal de SceneA
@@ -151,18 +95,13 @@ func _process(delta):
 		$Bg.visible = false
 
 		$Classement.text = text_temp
->>>>>>> 806bad380081aa42ed6c396e4d208a1b2af50da9
 # Affiche la boîte de texte
 		$Classement.visible = true
 	
 
 func update_glass_sprite(controller_nb,score):
-<<<<<<< HEAD
-	var glass_sprite = get_node("Glass"+str(controller_nb+1))  # Replace "X" with the correct path if necessary
-=======
 	var glass_sprite = get_node("Glass"+str((controller_nb)))  # Replace "X" with the correct path if necessary
 	print_debug("The score is:"+ str(score))
->>>>>>> 806bad380081aa42ed6c396e4d208a1b2af50da9
 	# Ensure it's a Sprite2D node
 	if glass_sprite is Sprite2D:
 		var new_texture_index = min(score/5, glass_textures.size() - 1)
@@ -197,8 +136,6 @@ func _on_countdown_timeout() -> void:
 		can_click = true  # Permet de cliquer après le compte à rebours
 		print("Le compte à rebours est terminé, vous pouvez maintenant cliquer!")
 		$Glouglou.play()
-<<<<<<< HEAD
-=======
 
 func _start_scene():
 	for i in range (0,4):
@@ -227,4 +164,3 @@ func _on_hud_all_players_selected_bis(characters: Array) -> void:
 	players_char=characters
 	print_debug("Youpi")
 	print_debug(players_char) # Replace with function body.
->>>>>>> 806bad380081aa42ed6c396e4d208a1b2af50da9
