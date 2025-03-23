@@ -19,7 +19,7 @@ var sprite
 var shadow
 var shadow_init_scale
 
-var is_thrown
+var is_thrown = false
 
 #spin 
 var is_spinning = false
