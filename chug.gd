@@ -1,9 +1,11 @@
 extends Node2D
 
 @export var controller_nb: int
-const MAX_CLICKS = 35
+const MAX_CLICKS = 30
 const CLICKS_PER_STAGE = 10
 
+var timer_start=true
+var can_click = false
 var finished = [0,1,1,1]
 var classement = []
 var player_sprite = []  # Tableau pour stocker les sprites des joueurs
@@ -21,27 +23,35 @@ var glass_textures = [
 ]
 
 func _ready():
+	$Counting.play()
 	$Player1.play("Gégé")
+	# Cache les sprites au début
+	$"3".visible = false
+	$"2".visible = false
+	$"1".visible = false
+	$"Buvez!".visible = false
+	
+	$Countdown.start()
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if can_click and Input.is_action_just_pressed("ui_accept"):
 		score += 1
 	update_glass_sprite(controller_nb, score)
-	if score >=35 and finished[controller_nb]==0:
+	if score >=MAX_CLICKS and finished[controller_nb]==0:
+		#$Burp.play()
+		$Glass1.visible=false
 		classement.append(controller_nb)
-		print_debug(classement)
 		finished[controller_nb] = 1
 	if finished == [1, 1, 1, 1]:
-		var sprite_x = get_node("Player1")  # Remplace par le chemin réel
-		var sprite_y = get_node("Glass1")  # Remplace par le chemin réel
-		var text_box = get_node("Classement")
+		$Glouglou.stop()
 # Affiche les sprites X et Y
-		sprite_x.visible = false
-		sprite_y.visible = false
+		$Player1.visible = false
+		$Glass1.visible = false
+		$Bg.visible = false
 		
-		text_box.text = "Classement: \n 1. Player"+str(classement[0])
+		$Classement.text = "Classement: \n 1. Player"+str(classement[0])
 # Affiche la boîte de texte
-		text_box.visible = true
+		$Classement.visible = true
 	
 
 func update_glass_sprite(controller_nb,score):
@@ -49,7 +59,34 @@ func update_glass_sprite(controller_nb,score):
 	# Ensure it's a Sprite2D node
 	if glass_sprite is Sprite2D:
 		var new_texture_index = min(score/5, glass_textures.size() - 1)
-		print_debug("idx"+ str(new_texture_index))
-		print_debug("score: "+ str(score))
 		if glass_sprite.texture != glass_textures[new_texture_index]:
 			glass_sprite.texture = glass_textures[new_texture_index]
+
+
+func _on_countdown_timeout() -> void:
+	print_debug("timeout")
+	# Vérifie quelle étape du compte à rebours est en cours
+	if	timer_start:
+		timer_start=false
+		$"3".visible = true
+		$Countdown.start()
+	elif $"3".visible:
+		# Cache le 3 et affiche le 2
+		$"3".visible = false
+		$"2".visible = true
+		$Countdown.start()  # Redémarre le Timer pour passer à 1
+	elif $"2".visible:
+		# Cache le 2 et affiche le 1
+		$"2".visible = false
+		$"1".visible = true
+		$"Countdown".start()  # Redémarre le Timer pour passer à l'action
+	elif $"1".visible:
+		# Cache le 2 et affiche le 1
+		$"1".visible = false
+		$"Buvez!".visible = true
+		$"Countdown".start()  # Redémarre le Timer pour passer à l'action
+	elif $"Buvez!".visible:
+		$"Buvez!".visible = false
+		can_click = true  # Permet de cliquer après le compte à rebours
+		print("Le compte à rebours est terminé, vous pouvez maintenant cliquer!")
+		$Glouglou.play()
