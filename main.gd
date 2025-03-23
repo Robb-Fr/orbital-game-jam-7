@@ -25,4 +25,4 @@ func new_game():
 	#$Player3.start(gen_start_position())
 	#$Player4.start(gen_start_position())
 	#$Player1.not_instanciated()
-	$Music.play()
+	#$Music.play()
