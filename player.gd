@@ -2,12 +2,6 @@ class_name player extends CharacterBody2D
 
 enum positionEnum {RIGHT, LEFT, DOWN, UP}
 
-const MAX_NB_BOULES = 5
-var nb_boules = 0
-signal thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
-signal thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
-var cochon_shot = true
-
 @export var MAX_ETHANOL = 10.0 					# [0;10]
 @export var ETHANOL_DECREASE_PER_TICK = 0.01	# float
 @export var ETHANOL_PERFECT_RANGE = 5			# int
@@ -15,7 +9,7 @@ var cochon_shot = true
 @export var POWER_INCREASE_PER_TICK = 1		# int
 
 @export var speed = 400
-@export var controller_type: String
+@export var controller_nb: int
 @export var ethanol_range = 1.5 				# float
 @export var ethanol_decrease_buff = 0.0 		# [0;1]
 # TODO: implement below features
@@ -49,30 +43,17 @@ func _ready():
 
 func _process(delta):
 	# INPUT MANAGEMENT
+	if !is_playing:
+		velocity = Vector2.ZERO
+		if Input.is_action_pressed("right" + str(controller_nb)):
+			velocity.x += 1
+		if Input.is_action_pressed("left" + str(controller_nb)):
+			velocity.x -= 1
+		if Input.is_action_pressed("down" + str(controller_nb)):
+			velocity.y += 1
+		if Input.is_action_pressed("up" + str(controller_nb)):
+			velocity.y -= 1
 
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("right" + controller_type):
-		isFacing = positionEnum.RIGHT
-		velocity.x += 1
-	if Input.is_action_pressed("left" + controller_type):
-		isFacing = positionEnum.LEFT
-		velocity.x -= 1
-	if Input.is_action_pressed("down" + controller_type):
-		isFacing = positionEnum.DOWN
-		velocity.y += 1
-	if Input.is_action_pressed("up" + controller_type):
-		isFacing = positionEnum.UP
-		velocity.y -= 1
-	if Input.is_action_just_pressed("spawn_ball" + controller_type) and cochon_shot:
-		cochon_shot = false
-		thrown_cochon.emit(controller_type, position, Vector2(1,0), 200) 
-	elif Input.is_action_just_pressed("spawn_ball" + controller_type) and nb_boules < MAX_NB_BOULES:
-		nb_boules += 1
-		thrown_ball.emit(controller_type, position, Vector2(1,0), 150) 
-
-	if !can_move:
-		var arena = get_node("Arena")
-		var target_direction = (arena.position - position).normalized()
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
 			$PlayerSprite.play()
