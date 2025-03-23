@@ -62,6 +62,7 @@ autowrap_mode = 2
 
 [node name="ChangeCharacter" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_5duen")
 theme_override_font_sizes/font_size = 32
 shortcut = SubResource("Shortcut_mn8d4")
@@ -69,6 +70,7 @@ text = "Change character"
 
 [node name="SelectCharacter" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_5duen")
 theme_override_font_sizes/font_size = 32
 shortcut = SubResource("Shortcut_aoibv")

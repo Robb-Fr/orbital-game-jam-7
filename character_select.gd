@@ -16,23 +16,29 @@ var controllers = [
 
 signal selected_character(name: String, texture_url: Texture2D)
 
-@export var current_char = 1
-@export var controller_type = 1
+@export var current_char = 0
+@export var controller_type = 0
+
+var selection_events: Array[String]
+var action_events: Array[String]
 
 func _ready():
 	$HBoxContainer/CharacterName.text = characters[current_char][0]
 	$HBoxContainer/CharacterIcon.set_texture(characters[current_char][1])
 	$HBoxContainer/ControllerIcon.set_texture(controllers[controller_type][1])
-	var input_events: Array[InputEvent] = []
 	for dir in ["up", "down", "left", "right"]:
-		var input_event = InputEventAction.new()
-		input_event.set_action(dir + "_" + controllers[controller_type][0])
-		input_events.append(input_event)
-	$HBoxContainer/ChangeCharacter.shortcut.set_events(input_events)
-	var action_event = InputEventAction.new()
-	action_event.set_action("action_" + controllers[controller_type][0])
-	$HBoxContainer/SelectCharacter.shortcut.set_events([action_event])
-	
+		var action_name = dir + "_" + controllers[controller_type][0]
+		selection_events.append(action_name)
+	action_events = ["action_" + controllers[controller_type][0]]
+
+func _process(delta):
+	for e in selection_events:
+		if Input.is_action_just_pressed(e):
+			$HBoxContainer/ChangeCharacter.pressed.emit()
+	for e in action_events:
+		if Input.is_action_just_pressed(e):
+			$HBoxContainer/SelectCharacter.pressed.emit()
+
 func _on_change_character_pressed():
 	var next_char_index = (current_char + 1) % len(characters)
 	var next_char = characters[(current_char + 1) % len(characters)]
