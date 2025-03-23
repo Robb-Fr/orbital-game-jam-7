@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnypm5petiu8j"]
+[gd_scene load_steps=19 format=3 uid="uid://do5bc0hsfwnd5"]
 
 [ext_resource type="Script" uid="uid://ue6rtb8v40fu" path="res://chug.gd" id="1_dxvyv"]
 [ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/Patoche walking/patoche-1.png" id="2_5rk26"]
