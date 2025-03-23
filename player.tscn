@@ -38,7 +38,7 @@ animations = [{
 radius = 27.0
 height = 66.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_sweqy")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
@@ -46,22 +46,30 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dw050")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_hqtel")
-
 [node name="Range" type="Sprite2D" parent="."]
 rotation = 0.785398
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_dw050")
 
-[node name="Power" type="Sprite2D" parent="."]
+[node name="Power2" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_b26j0")
 
 [node name="Hint" type="Sprite2D" parent="."]
-position = Vector2(20.25, -40.125)
-scale = Vector2(0.3, 0.3)
+position = Vector2(24.325, -43.8125)
+scale = Vector2(0.485227, 0.4475)
 texture = ExtResource("8_n7ghd")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hqtel")
+
+[node name="Power" type="TextureProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -82.0
+offset_right = 87.0
+offset_bottom = 418.0
+scale = Vector2(0.26, 0.26)
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("7_b26j0")
