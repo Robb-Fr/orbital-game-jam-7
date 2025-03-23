@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://bxr2onhu8bd0x"]
+[gd_scene format=3 uid="uid://bxr2onhu8bd0x"]
 
 [node name="HUD_main" type="Node"]
 

@@ -1,36 +1,74 @@
-[gd_scene load_steps=11 format=3 uid="uid://vj23itvatyoj"]
+[gd_scene load_steps=18 format=3 uid="uid://vj23itvatyoj"]
 
-[ext_resource type="Texture2D" uid="uid://1astfd0ey6qf" path="res://art/dodge_the_creeps/playerGrey_up1.png" id="1_hqtel"]
 [ext_resource type="Script" uid="uid://crrjuh2nw6q1w" path="res://player.gd" id="1_sweqy"]
-[ext_resource type="Texture2D" uid="uid://q76hufws4v4k" path="res://art/dodge_the_creeps/playerGrey_up2.png" id="2_sweqy"]
-[ext_resource type="Texture2D" uid="uid://butra8ir3xqq2" path="res://art/dodge_the_creeps/playerGrey_walk1.png" id="3_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://bfrcrpvn35nr0" path="res://art/dodge_the_creeps/playerGrey_walk2.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://mg1b4rt40etr" path="res://art/atomic_petanque/players/sprite_gg/gege-1.png" id="2_606se"]
+[ext_resource type="Texture2D" uid="uid://bt3r6rkq863dn" path="res://art/atomic_petanque/players/sprite_gg/gege-2.png" id="3_u1c27"]
+[ext_resource type="Texture2D" uid="uid://dl7ayjt0soc8a" path="res://art/atomic_petanque/players/sprite_gg/gege-3.png" id="4_op7ga"]
+[ext_resource type="Texture2D" uid="uid://b1vbp4tk5yyaa" path="res://art/atomic_petanque/players/sprite_nico/nico-1.png" id="5_q13i1"]
+[ext_resource type="Texture2D" uid="uid://b1tu7chxrkd0b" path="res://art/atomic_petanque/players/sprite_nico/nico-2.png" id="6_pylmc"]
 [ext_resource type="Texture2D" uid="uid://co6kuexqmp8cf" path="res://art/atomic_petanque/controllers/jauge.png" id="7_b26j0"]
+[ext_resource type="Texture2D" uid="uid://cu0avppy5abjt" path="res://art/atomic_petanque/players/sprite_oliv/olivier-1.png" id="7_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://c6ej8wwfglh0u" path="res://art/atomic_petanque/players/sprite_oliv/olivier-2.png" id="8_5tmop"]
 [ext_resource type="Texture2D" uid="uid://dsvgl3q00qgml" path="res://art/atomic_petanque/controllers/effect_purple.png" id="8_dw050"]
 [ext_resource type="Texture2D" uid="uid://bk7j25pc86ipq" path="res://art/atomic_petanque/controllers/x.png" id="8_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://d28sswvx3w8sr" path="res://art/atomic_petanque/players/sprite_oliv/olivier-3.png" id="9_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://sojijb0aedel" path="res://art/atomic_petanque/players/sprite_patoche/patoche-1.png" id="10_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://5qu7pcm7j6t4" path="res://art/atomic_petanque/players/sprite_patoche/patoche-2.png" id="11_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://d2g3etx5gjo1y" path="res://art/atomic_petanque/players/sprite_patoche/patoche-3.png" id="12_jm5j8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dw050"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hqtel")
+"texture": ExtResource("2_606se")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_sweqy")
+"texture": ExtResource("3_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_op7ga")
 }],
 "loop": true,
-"name": &"up",
+"name": &"Gégé",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_2hs0m")
+"texture": ExtResource("5_q13i1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_1jxqw")
+"texture": ExtResource("6_pylmc")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"Nico",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7ahtn")
+}],
+"loop": true,
+"name": &"Oliv",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jm5j8")
+}],
+"loop": true,
+"name": &"Patoche",
 "speed": 5.0
 }]
 
@@ -42,9 +80,10 @@ height = 66.0
 script = ExtResource("1_sweqy")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(1.00001, -5.99999)
+scale = Vector2(0.194, 0.212)
 sprite_frames = SubResource("SpriteFrames_dw050")
-animation = &"walk"
+animation = &"Patoche"
 
 [node name="Beam" type="Sprite2D" parent="."]
 visible = false

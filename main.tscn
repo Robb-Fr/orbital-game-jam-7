@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [gd_scene load_steps=11 format=4 uid="uid://bjm78rksl2kfi"]
 
 [ext_resource type="Script" uid="uid://l34884ob8da7" path="res://main.gd" id="1_0xm2m"]
@@ -8,21 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cnypm5petiu8j" path="res://chug.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dvhe4r5fg0u0m" path="res://art/atomic_petanque/backgrounds/Terrain3.png" id="8_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bxr2onhu8bd0x" path="res://hud_main.tscn" id="11_efxa6"]
-=======
-[gd_scene load_steps=19 format=4 uid="uid://bw3t5xdmv30bk"]
-
-[ext_resource type="Script" uid="uid://l34884ob8da7" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://vj23itvatyoj" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://bikkovipmsnb" path="res://art/dodge_the_creeps/enemyFlyingAlt_1.png" id="2_4c57u"]
-[ext_resource type="Texture2D" uid="uid://dgfs1sioeat6a" path="res://art/dodge_the_creeps/enemyFlyingAlt_2.png" id="3_efxa6"]
-[ext_resource type="PackedScene" uid="uid://cjhl5ye6w3xtj" path="res://arena.tscn" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://df4pq16riq740" path="res://art/dodge_the_creeps/enemySwimming_1.png" id="4_dg77c"]
-[ext_resource type="Texture2D" uid="uid://cgxk0n68ujutx" path="res://art/dodge_the_creeps/enemySwimming_2.png" id="5_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://bebc0btvo2i0w" path="res://art/dodge_the_creeps/enemyWalking_1.png" id="6_w48qg"]
-[ext_resource type="Texture2D" uid="uid://xx7eub8lbmvu" path="res://art/dodge_the_creeps/enemyWalking_2.png" id="7_vivmo"]
-[ext_resource type="PackedScene" path="res://hud_main.tscn" id="11_efxa6"]
->>>>>>> origin/main
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
@@ -80,7 +64,7 @@ parameters/looping = true
 
 [connection signal="thrown_ball" from="Player1" to="Arena" method="_on_player_1_thrown_ball"]
 [connection signal="thrown_cochon" from="Player1" to="Arena" method="_on_player_1_thrown_cochon"]
-[connection signal="player_chars_are" from="Chug" to="." method="_on_chug_player_chars_are"]
-[connection signal="winner_is" from="Chug" to="." method="_on_chug_winner_is"]
 [connection signal="thrown_ball" from="Player2" to="Arena" method="_on_player_2_thrown_ball"]
 [connection signal="thrown_cochon" from="Player2" to="Arena" method="_on_player_2_thrown_cochon"]
+[connection signal="player_chars_are" from="Chug" to="." method="_on_chug_player_chars_are"]
+[connection signal="winner_is" from="Chug" to="." method="_on_chug_winner_is"]

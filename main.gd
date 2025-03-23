@@ -23,7 +23,13 @@ func _on_chug_player_chars_are(players: Variant) -> void:
 	for i in range(0, 4):
 		if players[i] is String:
 			var player = get_node("Player" + str(i + 1))
-			player.controller_name = str(i)
+			match i:
+				0:
+					player.controller_name = 'wasd'
+				1:
+					player.controller_name = 'arrows'
+				_:
+					player.controller_name = 'controller_' + str(i - 1)
 			print(player.controller_name)
 			player.sprite_name = players[i]
 			player.ethanol_bar_ref = $HUD_main.find_child('ProgressBar' + str(i + 1))

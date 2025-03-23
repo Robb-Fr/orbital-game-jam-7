@@ -4,7 +4,6 @@ signal boule(s_position: Vector2, s_direction: Vector2)
 
 enum hint_sprites {X, E}
 
-var controller_type: String
 const MAX_NB_BOULES = 5
 var nb_boules = 0
 signal thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
@@ -60,28 +59,28 @@ func start(pos):
 func _ready():
 	screen_size = get_viewport_rect().size
 	range_ratio = 1.0
-	current_ethanol = 10.0 # FIXME: remove this
+	current_ethanol = 0.0
 	hide()
 
 func _process(delta):
 	# INPUT MANAGEMENT
 	if !is_playing:
 		velocity = Vector2.ZERO
-		if Input.is_action_pressed("right_" + str(controller_type)):
+		if Input.is_action_pressed("right_" + str(controller_name)):
 			velocity.x += 1
-		if Input.is_action_pressed("left_" + str(controller_type)):
+		if Input.is_action_pressed("left_" + str(controller_name)):
 			velocity.x -= 1
-		if Input.is_action_pressed("down_" + str(controller_type)):
+		if Input.is_action_pressed("down_" + str(controller_name)):
 			velocity.y += 1
-		if Input.is_action_pressed("up_" + str(controller_type)):
+		if Input.is_action_pressed("up_" + str(controller_name)):
 			velocity.y -= 1
 			
-		if Input.is_action_just_pressed("spawn_ball_" + controller_type) and cochon_shot:
+		if Input.is_action_just_pressed("spawn_ball_" + controller_name) and cochon_shot:
 			cochon_shot = false
-			thrown_cochon.emit(controller_type, position, Vector2(1,0), 200) 
-		elif Input.is_action_just_pressed("spawn_ball_" + controller_type) and nb_boules < MAX_NB_BOULES:
+			thrown_cochon.emit(controller_name, position, Vector2(1,0), 200) 
+		elif Input.is_action_just_pressed("spawn_ball_" + controller_name) and nb_boules < MAX_NB_BOULES:
 			nb_boules += 1
-			thrown_ball.emit(controller_type, position, Vector2(1,0), 150)
+			thrown_ball.emit(controller_name, position, Vector2(1,0), 150)
 
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
@@ -90,18 +89,18 @@ func _process(delta):
 			$PlayerSprite.stop()
 		move_and_slide()
 		
-		if velocity.x != 0:
-			$PlayerSprite.animation = "walk"
-			$PlayerSprite.flip_v = false
-			$PlayerSprite.flip_h = velocity.x < 0
-		elif velocity.y != 0:
-			$PlayerSprite.animation = "up"
-			$PlayerSprite.flip_v = velocity.y > 0
+		#if velocity.x != 0:
+			#$PlayerSprite.animation = "walk"
+			#$PlayerSprite.flip_v = false
+			#$PlayerSprite.flip_h = velocity.x < 0
+		#elif velocity.y != 0:
+			#$PlayerSprite.animation = "up"
+			#$PlayerSprite.flip_v = velocity.y > 0
 	elif (is_playing && $Beam.visible):
 		var wanted_change: int
-		if Input.is_action_pressed("right_" + str(controller_type)):
+		if Input.is_action_pressed("right_" + str(controller_name)):
 			wanted_change = 1
-		if Input.is_action_pressed("left_" + str(controller_type)):
+		if Input.is_action_pressed("left_" + str(controller_name)):
 			wanted_change = -1
 		
 		#$Beam.rotation_degrees += wanted_change
@@ -140,14 +139,14 @@ func _process(delta):
 		#else:
 			#$Range.rotation_degrees -= wanted_change
 		
-	if Input.is_action_just_pressed("X_" + str(controller_type)):
+	if Input.is_action_just_pressed("action_" + str(controller_name)):
 		if !is_playing && $Hint.visible:
 			$Hint.visible = false
 			on_stadium_entered()
 		elif is_playing:
 			on_stadium_exit()
 			
-	if Input.is_action_just_pressed("B_" + str(controller_type)):
+	if Input.is_action_just_pressed("scope_" + str(controller_name)):
 		if is_playing:
 			on_shot()
 			on_stadium_exit()
