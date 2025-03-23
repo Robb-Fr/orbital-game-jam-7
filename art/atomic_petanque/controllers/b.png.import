@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk7j25pc86ipq"
-path="res://.godot/imported/x.png-f412a3470b4dbe317a57664b8c073746.ctex"
+uid="uid://hexe4heyi38f"
+path="res://.godot/imported/b.png-369c05e229380ba9a348f151466c08f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/controllers/x.png"
-dest_files=["res://.godot/imported/x.png-f412a3470b4dbe317a57664b8c073746.ctex"]
+source_file="res://art/atomic_petanque/controllers/b.png"
+dest_files=["res://.godot/imported/b.png-369c05e229380ba9a348f151466c08f6.ctex"]
 
 [params]
 

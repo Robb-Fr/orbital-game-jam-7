@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bxr2onhu8bd0x"]
+
+[node name="HUD_main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ProgressBar1" type="ProgressBar" parent="."]
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 396.0
+offset_bottom = 70.0
+max_value = 10.0
+value = 1.5
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+offset_left = 17.0
+offset_top = 227.0
+offset_right = 396.0
+offset_bottom = 280.0
+max_value = 10.0
+value = 1.5
+
+[node name="ProgressBar3" type="ProgressBar" parent="."]
+offset_left = 17.0
+offset_top = 159.0
+offset_right = 396.0
+offset_bottom = 212.0
+max_value = 10.0
+value = 1.5
+
+[node name="ProgressBar4" type="ProgressBar" parent="."]
+offset_left = 17.0
+offset_top = 87.0
+offset_right = 396.0
+offset_bottom = 140.0
+max_value = 10.0
+value = 1.5
