@@ -28,15 +28,11 @@ func _on_player_2_thrown_ball(controller_type: String, pos: Vector2, dir: Vector
 func _on_player_1_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
 	if cochon_ == null:
 		cochon_ = cochon_scene.instantiate()
-
-		print_debug(typeof(controller_type))
 		cochon_.controller_type = controller_type
 		cochon_.initial_position = to_local(pos)
 		cochon_.direction = dir
-		cochon_.power = pow		
+		cochon_.power = pow
 		$".".add_child(cochon_)
-
-
 
 func _on_player_2_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
 	if cochon_ == null:

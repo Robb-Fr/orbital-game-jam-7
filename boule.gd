@@ -70,19 +70,19 @@ func _process(delta: float) -> void:
 			shadow.scale = scale_factor * shadow_init_scale
 	
 	if is_spinning:
-			current_angle += spin_speed * delta
-			
-			# Calculate new position on the circle
-			var new_position = spin_center + Vector2(
-				cos(current_angle) * spin_radius,
-				sin(current_angle) * spin_radius
-			)
-			
-			# Update position
-			position = new_position
-			
-			# Make the sprite rotate as it spins
-			sprite.rotation_degrees += 360 * delta	
+		current_angle += spin_speed * delta
+		
+		# Calculate new position on the circle
+		var new_position = spin_center + Vector2(
+			cos(current_angle) * spin_radius,
+			sin(current_angle) * spin_radius
+		)
+		
+		# Update position
+		position = new_position
+		
+		# Make the sprite rotate as it spins
+		sprite.rotation_degrees += 360 * delta	
 			
 	if Input.is_action_just_pressed("tirer_" + controller_type) and !is_thrown:
 		is_thrown = true

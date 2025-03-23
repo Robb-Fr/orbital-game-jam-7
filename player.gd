@@ -67,13 +67,13 @@ func _process(delta):
 	# INPUT MANAGEMENT
 	if !is_playing:
 		velocity = Vector2.ZERO
-		if Input.is_action_pressed("right_" + str(controller_name)):
+		if Input.is_action_pressed("right_" + str(controller_type)):
 			velocity.x += 1
-		if Input.is_action_pressed("left_" + str(controller_name)):
+		if Input.is_action_pressed("left_" + str(controller_type)):
 			velocity.x -= 1
-		if Input.is_action_pressed("down_" + str(controller_name)):
+		if Input.is_action_pressed("down_" + str(controller_type)):
 			velocity.y += 1
-		if Input.is_action_pressed("up_" + str(controller_name)):
+		if Input.is_action_pressed("up_" + str(controller_type)):
 			velocity.y -= 1
 			
 		if Input.is_action_just_pressed("spawn_ball_" + controller_type) and cochon_shot:
@@ -99,9 +99,9 @@ func _process(delta):
 			$PlayerSprite.flip_v = velocity.y > 0
 	elif (is_playing && $Beam.visible):
 		var wanted_change: int
-		if Input.is_action_pressed("right_" + str(controller_name)):
+		if Input.is_action_pressed("right_" + str(controller_type)):
 			wanted_change = 1
-		if Input.is_action_pressed("left_" + str(controller_name)):
+		if Input.is_action_pressed("left_" + str(controller_type)):
 			wanted_change = -1
 		
 		#$Beam.rotation_degrees += wanted_change
@@ -140,14 +140,14 @@ func _process(delta):
 		#else:
 			#$Range.rotation_degrees -= wanted_change
 		
-	if Input.is_action_just_pressed("X_" + str(controller_name)):
+	if Input.is_action_just_pressed("X_" + str(controller_type)):
 		if !is_playing && $Hint.visible:
 			$Hint.visible = false
 			on_stadium_entered()
 		elif is_playing:
 			on_stadium_exit()
 			
-	if Input.is_action_just_pressed("B_" + str(controller_name)):
+	if Input.is_action_just_pressed("B_" + str(controller_type)):
 		if is_playing:
 			on_shot()
 			on_stadium_exit()
