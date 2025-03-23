@@ -9,7 +9,7 @@ enum positionEnum {RIGHT, LEFT, DOWN, UP}
 @export var POWER_INCREASE_PER_TICK = 1		# int
 
 @export var speed = 400
-@export var controller_nb: int
+@export var controller_type: String
 @export var ethanol_range = 1.5 				# float
 @export var ethanol_decrease_buff = 0.0 		# [0;1]
 # TODO: implement below features
@@ -45,13 +45,13 @@ func _process(delta):
 	# INPUT MANAGEMENT
 	if !is_playing:
 		velocity = Vector2.ZERO
-		if Input.is_action_pressed("right" + str(controller_nb)):
+		if Input.is_action_pressed("right_" + str(controller_type)):
 			velocity.x += 1
-		if Input.is_action_pressed("left" + str(controller_nb)):
+		if Input.is_action_pressed("left_" + str(controller_type)):
 			velocity.x -= 1
-		if Input.is_action_pressed("down" + str(controller_nb)):
+		if Input.is_action_pressed("down_" + str(controller_type)):
 			velocity.y += 1
-		if Input.is_action_pressed("up" + str(controller_nb)):
+		if Input.is_action_pressed("up_" + str(controller_type)):
 			velocity.y -= 1
 
 		if velocity.length() > 0:
@@ -69,7 +69,7 @@ func _process(delta):
 			$PlayerSprite.animation = "up"
 			$PlayerSprite.flip_v = velocity.y > 0
 		
-	if Input.is_action_just_pressed("pressX" + str(controller_nb)):
+	if Input.is_action_just_pressed("pressX" + str(controller_type)):
 		if !is_playing && $Hint.visible:
 			$Hint.visible = false
 			on_stadium_entered()

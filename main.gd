@@ -16,10 +16,7 @@ func gen_start_position():
 	return mob_spawn_location.position 
 
 func init_player_controller():
-	$Player1.controller_nb = 0
-	$Player2.controller_nb = 1
-	$Player3.controller_nb = 2
-	$Player4.controller_nb = 3
+	$Player1.controller_type = 'arrows'
 	
 func new_game():
 	init_player_controller()
