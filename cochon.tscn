@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://ctecvfvqgmom0" path="res://cochon.gd" id="2_o5rct"]
 
 [node name="Cochon" instance=ExtResource("1_6oh4e")]
-position = Vector2(0, 0)
 script = ExtResource("2_o5rct")
 
 [node name="Texture" parent="." index="1"]
