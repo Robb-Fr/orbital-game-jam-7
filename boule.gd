@@ -19,7 +19,7 @@ var sprite
 var shadow
 var shadow_init_scale
 
-var is_thrown
+var is_thrown = false
 
 #spin 
 var is_spinning = false
@@ -84,10 +84,10 @@ func _process(delta: float) -> void:
 			# Make the sprite rotate as it spins
 			sprite.rotation_degrees += 360 * delta	
 			
-	if Input.is_action_just_pressed("tirer" + controller_type) and !is_thrown:
+	if Input.is_action_just_pressed("tirer_" + controller_type) and !is_thrown:
 		is_thrown = true
 		bowling_throw(direction, power)
-	elif Input.is_action_just_pressed("pointer" + controller_type) and !is_thrown:
+	elif Input.is_action_just_pressed("pointer_" + controller_type) and !is_thrown:
 		is_thrown = true
 		arc_throw(direction, 2*power)
 	

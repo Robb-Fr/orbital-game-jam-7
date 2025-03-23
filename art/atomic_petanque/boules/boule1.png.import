@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bskq0ovemcf7m"
-path="res://.godot/imported/Boule1.png-3db6e60fe2c59100002b66e07c85fad5.ctex"
+uid="uid://cpk47toj2vaoc"
+path="res://.godot/imported/boule1.png-8783de23074bdeeac653140edc8df618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/boules/Boule1.png"
-dest_files=["res://.godot/imported/Boule1.png-3db6e60fe2c59100002b66e07c85fad5.ctex"]
+source_file="res://art/atomic_petanque/boules/boule1.png"
+dest_files=["res://.godot/imported/boule1.png-8783de23074bdeeac653140edc8df618.ctex"]
 
 [params]
 

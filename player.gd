@@ -2,11 +2,13 @@ class_name player extends CharacterBody2D
 
 enum positionEnum {RIGHT, LEFT, DOWN, UP}
 
+var controller_type: String
 const MAX_NB_BOULES = 5
 var nb_boules = 0
 signal thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
 signal thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
 var cochon_shot = true
+
 
 @export var MAX_ETHANOL = 10.0 					# [0;10]
 @export var ETHANOL_DECREASE_PER_TICK = 0.01	# float
@@ -15,7 +17,6 @@ var cochon_shot = true
 @export var POWER_INCREASE_PER_TICK = 1		# int
 
 @export var speed = 400
-@export var controller_type: String
 @export var ethanol_range = 1.5 				# float
 @export var ethanol_decrease_buff = 0.0 		# [0;1]
 # TODO: implement below features
@@ -49,36 +50,30 @@ func _ready():
 
 func _process(delta):
 	# INPUT MANAGEMENT
+	if !is_playing:
+		velocity = Vector2.ZERO
+		if Input.is_action_pressed("right_" + controller_type):
+			velocity.x += 1
+		if Input.is_action_pressed("left_" + controller_type):
+			velocity.x -= 1
+		if Input.is_action_pressed("down_" + controller_type):
+			velocity.y += 1
+		if Input.is_action_pressed("up_" + controller_type):
+			velocity.y -= 1
+			
+		if Input.is_action_just_pressed("spawn_ball_" + controller_type) and cochon_shot:
+			cochon_shot = false
+			thrown_cochon.emit(controller_type, position, Vector2(1,0), 200) 
+		elif Input.is_action_just_pressed("spawn_ball_" + controller_type) and nb_boules < MAX_NB_BOULES:
+			nb_boules += 1
+			thrown_ball.emit(controller_type, position, Vector2(1,0), 150)
 
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("right" + controller_type):
-		isFacing = positionEnum.RIGHT
-		velocity.x += 1
-	if Input.is_action_pressed("left" + controller_type):
-		isFacing = positionEnum.LEFT
-		velocity.x -= 1
-	if Input.is_action_pressed("down" + controller_type):
-		isFacing = positionEnum.DOWN
-		velocity.y += 1
-	if Input.is_action_pressed("up" + controller_type):
-		isFacing = positionEnum.UP
-		velocity.y -= 1
-	if Input.is_action_just_pressed("spawn_ball" + controller_type) and cochon_shot:
-		cochon_shot = false
-		thrown_cochon.emit(controller_type, position, Vector2(1,0), 200) 
-	elif Input.is_action_just_pressed("spawn_ball" + controller_type) and nb_boules < MAX_NB_BOULES:
-		nb_boules += 1
-		thrown_ball.emit(controller_type, position, Vector2(1,0), 150) 
-
-	#if !can_move:
-		#var arena = get_node("Arena")
-		#var target_direction = (arena.position - position).normalized()
-		#if velocity.length() > 0:
-			#velocity = velocity.normalized() * speed
-			#$PlayerSprite.play()
-		#else:
-			#$PlayerSprite.stop()
-		#move_and_slide()
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * speed
+			$PlayerSprite.play()
+		else:
+			$PlayerSprite.stop()
+		move_and_slide()
 		
 		if velocity.x != 0:
 			$PlayerSprite.animation = "walk"
@@ -87,13 +82,13 @@ func _process(delta):
 		elif velocity.y != 0:
 			$PlayerSprite.animation = "up"
 			$PlayerSprite.flip_v = velocity.y > 0
-		
-	#if Input.is_action_just_pressed("pressX" + str(controller_nb)):
-		#if !is_playing && $Hint.visible:
-			#$Hint.visible = false
-			#on_stadium_entered()
-		#elif is_playing:
-			#on_stadium_exit()
+
+	if Input.is_action_just_pressed("pressX_" + controller_type):
+		if !is_playing && $Hint.visible:
+			$Hint.visible = false
+			on_stadium_entered()
+		elif is_playing:
+			on_stadium_exit()
 			
 	# STATE MANAGEMENT
 	current_ethanol = clamp(current_ethanol - ETHANOL_DECREASE_PER_TICK / (1.0 - ethanol_decrease_buff), 0, MAX_ETHANOL)

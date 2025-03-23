@@ -16,10 +16,7 @@ func gen_start_position():
 	return mob_spawn_location.position 
 
 func init_player_controller():
-	$Player1.controller_type = "_wasd"
-	$Player2.controller_type = "_arrows"
-	#$Player3.controller_type = "_controller_1"
-	#$Player4.controller_type = "_controller_2"
+	$Player1.controller_type = 'arrows'
 	
 func new_game():
 	init_player_controller()
@@ -28,4 +25,4 @@ func new_game():
 	#$Player3.start(gen_start_position())
 	#$Player4.start(gen_start_position())
 	#$Player1.not_instanciated()
-	$Music.play()
+	#$Music.play()

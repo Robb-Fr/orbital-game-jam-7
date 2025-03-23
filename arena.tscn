@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://n1fhm6clfc4l" path="res://arena.gd" id="1_444vf"]
 [ext_resource type="Texture2D" uid="uid://buxbopkylnu4d" path="res://art/atomic_petanque/stadium/circle.png" id="2_444vf"]
-[ext_resource type="PackedScene" uid="uid://ycf2xe8c2fkl" path="res://boule.tscn" id="2_fu4bq"]
-[ext_resource type="PackedScene" uid="uid://c6nlgb5fbdjvv" path="res://cochon.tscn" id="3_sbb53"]
+[ext_resource type="PackedScene" uid="uid://b7sgrdipromhg" path="res://boule.tscn" id="2_h0wof"]
+[ext_resource type="PackedScene" uid="uid://cwq2e3kxdoykp" path="res://cochon.tscn" id="3_fu4bq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_444vf"]
 radius = 127.004
@@ -13,8 +13,8 @@ radius = 103.044
 
 [node name="Arena" type="Area2D"]
 script = ExtResource("1_444vf")
-boule_scene = ExtResource("2_fu4bq")
-cochon_scene = ExtResource("3_sbb53")
+boule_scene = ExtResource("2_h0wof")
+cochon_scene = ExtResource("3_fu4bq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_444vf")
