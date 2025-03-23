@@ -1,21 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjhl5ye6w3xtj"]
+[gd_scene load_steps=5 format=3 uid="uid://cjhl5ye6w3xtj"]
 
 [ext_resource type="Script" uid="uid://n1fhm6clfc4l" path="res://arena.gd" id="1_444vf"]
 [ext_resource type="Texture2D" uid="uid://buxbopkylnu4d" path="res://art/atomic_petanque/stadium/circle.png" id="2_444vf"]
-[ext_resource type="PackedScene" uid="uid://ycf2xe8c2fkl" path="res://boule.tscn" id="2_fu4bq"]
-[ext_resource type="Script" uid="uid://dwyuf7thw578o" path="res://arena_collision_player.gd" id="3_27ga2"]
-[ext_resource type="PackedScene" uid="uid://c6nlgb5fbdjvv" path="res://cochon.tscn" id="3_sbb53"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_444vf"]
 radius = 127.004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27ga2"]
-radius = 105.0
+radius = 103.044
 
 [node name="Arena" type="Area2D"]
 script = ExtResource("1_444vf")
-boule_scene = ExtResource("2_fu4bq")
-cochon_scene = ExtResource("3_sbb53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_444vf")
@@ -23,8 +18,10 @@ texture = ExtResource("2_444vf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_444vf")
 
-[node name="ArenaCollisionPlayer" type="Area2D" parent="."]
-script = ExtResource("3_27ga2")
+[node name="ArenaCollisionPlayer" type="StaticBody2D" parent="."]
 
 [node name="CollisionShapePlayer" type="CollisionShape2D" parent="ArenaCollisionPlayer"]
 shape = SubResource("CircleShape2D_27ga2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
