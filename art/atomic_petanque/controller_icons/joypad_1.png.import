@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpk47toj2vaoc"
-path="res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"
+uid="uid://cujdkvnwl1i7o"
+path="res://.godot/imported/joypad_1.png-325501e4ec245435eb490eb35016abf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/boules/Boule1_a.png"
-dest_files=["res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"]
+source_file="res://art/atomic_petanque/controller_icons/joypad_1.png"
+dest_files=["res://.godot/imported/joypad_1.png-325501e4ec245435eb490eb35016abf8.ctex"]
 
 [params]
 
