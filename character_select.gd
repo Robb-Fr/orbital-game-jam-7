@@ -1,27 +1,43 @@
 extends Control
 
 var characters = [
-	["Gégé", "res://art/atomic_petanque/players/gégé_moustache_de_feu.png"],
-	["Oliv", "res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png"],
-	["Patoche", "res://art/atomic_petanque/players/patoche_au_bob.png"],
-	["Nico", "res://art/atomic_petanque/players/nico_la_gaypride.png"]
+	["Gégé", preload("res://art/atomic_petanque/players/gégé_moustache_de_feu.png")],
+	["Oliv", preload("res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png")],
+	["Patoche", preload("res://art/atomic_petanque/players/patoche_au_bob.png")],
+	["Nico", preload("res://art/atomic_petanque/players/nico_la_gaypride.png")],
 ]
 
-signal selected_character(name: String, texture_url: String)
+var controllers = [
+	["wasd", preload("res://art/atomic_petanque/controller_icons/wasd.png")],
+	["arrows", preload("res://art/atomic_petanque/controller_icons/arrows.png")],
+	["controller_1", preload("res://art/atomic_petanque/controller_icons/joypad_1.png")],
+	["controller_2", preload("res://art/atomic_petanque/controller_icons/joypad_2.png")],
+]
 
-@export var current_char = 0
+signal selected_character(name: String, texture_url: Texture2D)
+
+@export var current_char = 1
+@export var controller_type = 1
 
 func _ready():
 	$HBoxContainer/CharacterName.text = characters[current_char][0]
-	var texture: Texture2D = load(characters[current_char][1])
-	$HBoxContainer/CharacterIcon.set_texture(texture)
-
+	$HBoxContainer/CharacterIcon.set_texture(characters[current_char][1])
+	$HBoxContainer/ControllerIcon.set_texture(controllers[controller_type][1])
+	var input_events: Array[InputEvent] = []
+	for dir in ["up", "down", "left", "right"]:
+		var input_event = InputEventAction.new()
+		input_event.set_action(dir + "_" + controllers[controller_type][0])
+		input_events.append(input_event)
+	$HBoxContainer/ChangeCharacter.shortcut.set_events(input_events)
+	var action_event = InputEventAction.new()
+	action_event.set_action("action_" + controllers[controller_type][0])
+	$HBoxContainer/SelectCharacter.shortcut.set_events([action_event])
+	
 func _on_change_character_pressed():
 	var next_char_index = (current_char + 1) % len(characters)
 	var next_char = characters[(current_char + 1) % len(characters)]
 	$HBoxContainer/CharacterName.text = next_char[0]
-	var next_texture: Texture2D = load(next_char[1])
-	$HBoxContainer/CharacterIcon.set_texture(next_texture)
+	$HBoxContainer/CharacterIcon.set_texture(next_char[1])
 	current_char = next_char_index
 
 func _on_select_character_pressed():
