@@ -83,7 +83,7 @@ func _process(delta):
 			cochon_shot = false
 			thrown_cochon.emit(controller_name, position, dir, power) 
 			on_stadium_exit()
-		elif Input.is_action_just_pressed("spawn_ball_" + controller_name)
+		elif Input.is_action_just_pressed("spawn_ball_" + controller_name):
 			if nb_boules < MAX_NB_BOULES:
 				nb_boules += 1
 				thrown_ball.emit(controller_name, position, dir, power)
