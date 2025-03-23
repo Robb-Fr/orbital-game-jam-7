@@ -44,7 +44,8 @@ script = ExtResource("1_sweqy")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dw050")
-animation = &"walk"
+animation = &"up"
+frame_progress = 0.98354
 
 [node name="Beam" type="Sprite2D" parent="."]
 visible = false

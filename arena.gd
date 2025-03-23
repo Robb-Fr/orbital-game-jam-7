@@ -25,7 +25,14 @@ func _on_player_1_thrown_ball(controller_type: String, pos: Vector2, dir: Vector
 func _on_player_2_thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
 	_on_thrown_ball(controller_type, pos, dir, pow)
 
-func _on_player_1_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+func _on_player_3_thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	_on_thrown_ball(controller_type, pos, dir, pow)
+
+func _on_player_4_thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	_on_thrown_ball(controller_type, pos, dir, pow)
+
+
+func _on_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
 	if cochon_ == null:
 		cochon_ = cochon_scene.instantiate()
 		cochon_.controller_type = controller_type
@@ -34,14 +41,18 @@ func _on_player_1_thrown_cochon(controller_type: String, pos: Vector2, dir: Vect
 		cochon_.power = pow
 		$".".add_child(cochon_)
 
+func _on_player_1_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	_on_thrown_cochon(controller_type, pos, dir, pow)
+
 func _on_player_2_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
-	if cochon_ == null:
-		cochon_ = cochon_scene.instantiate() 
-		cochon_.controller_type = controller_type
-		cochon_.initial_position = to_local(pos)
-		cochon_.direction = dir
-		cochon_.power = pow
-		$".".add_child(cochon_)
+	_on_thrown_cochon(controller_type, pos, dir, pow)
+
+func _on_player_3_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	_on_thrown_cochon(controller_type, pos, dir, pow)
+
+func _on_player_4_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	_on_thrown_cochon(controller_type, pos, dir, pow)
+
 
 #func _on_body_entered(body: Node2D) -> void:
 	#if ("Player" in body.name):

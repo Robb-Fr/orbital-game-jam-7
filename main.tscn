@@ -132,3 +132,7 @@ parameters/looping = true
 [connection signal="thrown_cochon" from="Player1" to="Arena" method="_on_player_1_thrown_cochon"]
 [connection signal="thrown_ball" from="Player2" to="Arena" method="_on_player_2_thrown_ball"]
 [connection signal="thrown_cochon" from="Player2" to="Arena" method="_on_player_2_thrown_cochon"]
+[connection signal="thrown_ball" from="Player3" to="Arena" method="_on_player_3_thrown_ball"]
+[connection signal="thrown_cochon" from="Player3" to="Arena" method="_on_player_3_thrown_cochon"]
+[connection signal="thrown_ball" from="Player4" to="Arena" method="_on_player_4_thrown_ball"]
+[connection signal="thrown_cochon" from="Player4" to="Arena" method="_on_player_4_thrown_cochon"]
