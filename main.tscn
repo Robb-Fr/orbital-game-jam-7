@@ -1,10 +1,80 @@
-[gd_scene load_steps=9 format=4 uid="uid://bw3t5xdmv30bk"]
+[gd_scene load_steps=19 format=4 uid="uid://bw3t5xdmv30bk"]
 
 [ext_resource type="Script" uid="uid://l34884ob8da7" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://vj23itvatyoj" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://qq0urb56kb1o" path="res://mob.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cjhl5ye6w3xtj" path="res://arena.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://df4pq16riq740" path="res://art/dodge_the_creeps/enemySwimming_1.png" id="4_dg77c"]
+[ext_resource type="Texture2D" uid="uid://cgxk0n68ujutx" path="res://art/dodge_the_creeps/enemySwimming_2.png" id="5_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bebc0btvo2i0w" path="res://art/dodge_the_creeps/enemyWalking_1.png" id="6_w48qg"]
+[ext_resource type="Texture2D" uid="uid://xx7eub8lbmvu" path="res://art/dodge_the_creeps/enemyWalking_2.png" id="7_vivmo"]
+[ext_resource type="PackedScene" uid="uid://ycf2xe8c2fkl" path="res://boule.tscn" id="9_efxa6"]
+
+[sub_resource type="GDScript" id="GDScript_b3mxk"]
+script/source = "extends RigidBody2D
+
+func _ready():
+	var mob_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
+	$AnimatedSprite2D.animation = mob_types.pick_random()
+	$AnimatedSprite2D.play()
+	
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbnni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4c57u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_efxa6")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dg77c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ycdy4")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w48qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vivmo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yscv0"]
+radius = 35.0
+height = 80.0
+
+[sub_resource type="PackedScene" id="PackedScene_2cqfq"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(3, 0, 16, 15, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Mob", "collision_mask", "gravity_scale", "script", "metadata/_edit_group_", "mobs", "RigidBody2D", "AnimatedSprite2D", "scale", "sprite_frames", "animation", "CollisionShape2D", "rotation", "shape", "VisibleOnScreenEnabler2D", "_on_visible_on_screen_enabler_2d_screen_exited", "screen_exited"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 6, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 1, 5, 0, 0, 7, 7, -1, 3, 8, 4, 9, 5, 10, 6, 0, 0, 0, 11, 11, -1, 2, 12, 7, 13, 8, 0, 0, 0, 14, 14, -1, 0, 0),
+"variants": [0, 0.0, SubResource("GDScript_b3mxk"), true, Vector2(0.75, 0.75), SubResource("SpriteFrames_jbnni"), &"swim", 1.5708, SubResource("CapsuleShape2D_yscv0")],
+"version": 3
+}
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
@@ -30,6 +100,7 @@ scale = Vector2(0.294889, 0.175333)
 
 [node name="Arena" parent="." instance=ExtResource("3_lquwl")]
 position = Vector2(646, 341)
+boule_scene = ExtResource("9_efxa6")
 
 [node name="Player1" parent="." instance=ExtResource("1_ig7tw")]
 
@@ -55,7 +126,5 @@ visible = false
 stream = SubResource("AudioStreamOggVorbis_lquwl")
 parameters/looping = true
 
-[connection signal="hit" from="Player1" to="." method="game_over"]
-[connection signal="hit" from="Player2" to="." method="game_over"]
-[connection signal="hit" from="Player3" to="." method="game_over"]
-[connection signal="hit" from="Player4" to="." method="game_over"]
+[connection signal="thrown_ball" from="Player1" to="Arena" method="_on_player_1_thrown_ball"]
+[connection signal="thrown_ball" from="Player2" to="Arena" method="_on_player_2_thrown_ball"]

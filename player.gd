@@ -2,7 +2,9 @@ class_name player extends Area2D
 
 enum positionEnum {RIGHT, LEFT, DOWN, UP}
 
-signal hit
+const MAX_NB_BOULES = 5
+var nb_boules = 0
+signal thrown_ball(pos: Vector2, dir: Vector2, pow: float)
 
 @export var MAX_ETHANOL = 10.0 					# [0;10]
 @export var ETHANOL_DECREASE_PER_TICK = 0.01	# float
@@ -53,6 +55,13 @@ func _process(delta):
 	if Input.is_action_pressed("up" + str(controller_nb)):
 		isFacing = positionEnum.UP
 		velocity.y -= 1
+	if Input.is_action_just_pressed("spawn_ball" + str(controller_nb)) and nb_boules < MAX_NB_BOULES:
+		nb_boules += 1
+		thrown_ball.emit(position, Vector2(1,0), 300) 
+		
+	if !can_move:
+		var arena = get_node("Arena")
+		var target_direction = (arena.position - position).normalized()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
