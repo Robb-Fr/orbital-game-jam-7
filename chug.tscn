@@ -1,13 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnypm5petiu8j"]
+[gd_scene load_steps=17 format=3 uid="uid://cnypm5petiu8j"]
 
 [ext_resource type="Script" uid="uid://ue6rtb8v40fu" path="res://chug.gd" id="1_dxvyv"]
-[ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/patoche-1.png" id="2_5rk26"]
-[ext_resource type="Texture2D" uid="uid://dxe5a5u13ip81" path="res://art/atomic_petanque/patoche-2.png" id="3_xlhos"]
-[ext_resource type="Texture2D" uid="uid://b7x8644of6si0" path="res://art/atomic_petanque/patoche-3.png" id="4_lpyk3"]
+[ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/Patoche walking/patoche-1.png" id="2_5rk26"]
+[ext_resource type="Texture2D" uid="uid://cpqyqgr7php2f" path="res://art/atomic_petanque/players/gégé_moustache_de_feu.png" id="3_qu5w2"]
+[ext_resource type="Texture2D" uid="uid://dxe5a5u13ip81" path="res://art/atomic_petanque/Patoche walking/patoche-2.png" id="3_xlhos"]
+[ext_resource type="Texture2D" uid="uid://b7x8644of6si0" path="res://art/atomic_petanque/Patoche walking/patoche-3.png" id="4_lpyk3"]
+[ext_resource type="Texture2D" uid="uid://binf4rnhjchdo" path="res://art/atomic_petanque/players/nico_la_gaypride.png" id="4_xh6so"]
+[ext_resource type="Texture2D" uid="uid://cyfr4xw1fehlx" path="res://art/atomic_petanque/players/oliv_chaussettes_deparaillees.png" id="5_hisil"]
 [ext_resource type="Texture2D" uid="uid://b3glrh7waawmc" path="res://art/atomic_petanque/Pastis-1.png" id="5_xlhos"]
+[ext_resource type="AudioStream" uid="uid://buf2jfy34ja8j" path="res://art/sons/Glouglou - 22.03.25 23.57.mp3" id="6_uffwh"]
+[ext_resource type="AudioStream" uid="uid://bo2isplav3t7t" path="res://art/sons/502231__doktoraudio__burp56.wav" id="7_whnba"]
+[ext_resource type="Texture2D" uid="uid://21ss41user36" path="res://art/atomic_petanque/Sunset.png" id="8_whnba"]
+[ext_resource type="Texture2D" uid="uid://dc1dyy2w8rxqg" path="res://art/atomic_petanque/countdown/Countdown3.png" id="9_irmjv"]
+[ext_resource type="Texture2D" uid="uid://d6i72wk478b2" path="res://art/atomic_petanque/countdown/Countdown2.png" id="10_fbv2u"]
+[ext_resource type="Texture2D" uid="uid://cwo86l2d08yxq" path="res://art/atomic_petanque/countdown/Countdown1.png" id="11_irmjv"]
+[ext_resource type="AudioStream" uid="uid://b356gocbsm81i" path="res://art/sons/counting - 23.03.25 00.52.mp3" id="12_irmjv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uffwh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qu5w2")
+}],
+"loop": true,
+"name": &"Gégé",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xh6so")
+}],
+"loop": true,
+"name": &"Nico",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hisil")
+}],
+"loop": true,
+"name": &"Oliv",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_5rk26")
@@ -19,26 +53,102 @@ animations = [{
 "texture": ExtResource("4_lpyk3")
 }],
 "loop": true,
-"name": &"Gégé",
+"name": &"Patoche",
 "speed": 5.0
 }]
 
 [node name="Chug" type="Node2D"]
 script = ExtResource("1_dxvyv")
 
-[node name="Player1" type="AnimatedSprite2D" parent="."]
-position = Vector2(259, 460)
-scale = Vector2(0.7, 0.7)
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(645, 364)
+texture = ExtResource("8_whnba")
+
+[node name="Player0" type="AnimatedSprite2D" parent="."]
+position = Vector2(238, 550)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
-animation = &"Gégé"
-frame_progress = 0.248313
+animation = &"Oliv"
+
+[node name="Player1" type="AnimatedSprite2D" parent="."]
+position = Vector2(554.439, 551)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_uffwh")
+animation = &"Oliv"
+
+[node name="Player2" type="AnimatedSprite2D" parent="."]
+position = Vector2(860.439, 553)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_uffwh")
+animation = &"Oliv"
+
+[node name="Player3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1145.44, 550)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_uffwh")
+animation = &"Oliv"
+
+[node name="Glass0" type="Sprite2D" parent="."]
+position = Vector2(184, 613)
+rotation = 0.356047
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_xlhos")
 
 [node name="Glass1" type="Sprite2D" parent="."]
-position = Vector2(155, 508)
+position = Vector2(506.439, 617)
+rotation = 0.356047
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_xlhos")
+
+[node name="Glass2" type="Sprite2D" parent="."]
+position = Vector2(800.439, 613)
+rotation = 0.356047
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_xlhos")
+
+[node name="Glass3" type="Sprite2D" parent="."]
+position = Vector2(1083.44, 619)
 rotation = 0.356047
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_xlhos")
 
 [node name="Classement" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_right = 1277.0
+offset_bottom = 718.0
+theme_override_font_sizes/font_size = 64
+text = "Test:
+1: Player 1
+2: Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Glouglou" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uffwh")
+
+[node name="Burp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_whnba")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(621, 356)
+texture = ExtResource("9_irmjv")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(621, 350)
+texture = ExtResource("10_fbv2u")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(623, 348)
+texture = ExtResource("11_irmjv")
+
+[node name="Buvez!" type="Sprite2D" parent="."]
+position = Vector2(623, 346)
+texture = ExtResource("5_xlhos")
+
+[node name="Countdown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Counting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_irmjv")
+
+[connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]

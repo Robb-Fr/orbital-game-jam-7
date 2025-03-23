@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://egv7t04gy8ip"
-path="res://.godot/imported/patoche-1.png-872d72b04b74f593efe107a9b65efed6.ctex"
+uid="uid://sl0hu5tnhvbp"
+path="res://.godot/imported/joypad_2.png-530016fb10f5cb5c083be6eb1044804d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/patoche-1.png"
-dest_files=["res://.godot/imported/patoche-1.png-872d72b04b74f593efe107a9b65efed6.ctex"]
+source_file="res://art/atomic_petanque/controller_icons/joypad_2.png"
+dest_files=["res://.godot/imported/joypad_2.png-530016fb10f5cb5c083be6eb1044804d.ctex"]
 
 [params]
 
