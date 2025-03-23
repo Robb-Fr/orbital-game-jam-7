@@ -38,3 +38,7 @@ func _on_chug_player_chars_are(players: Variant) -> void:
 
 func _on_chug_winner_is(id: Variant) -> void:
 	winner = id # TODO: implémenter le cochon
+
+
+func _on_player_3_thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float) -> void:
+	pass # Replace with function body.
