@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxe5a5u13ip81"
-path="res://.godot/imported/patoche-2.png-2279bada5a9af01cb3e72d894385b36c.ctex"
+uid="uid://21ss41user36"
+path="res://.godot/imported/Sunset.png-c465034866b3c302c7fa4f093488afaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/patoche-2.png"
-dest_files=["res://.godot/imported/patoche-2.png-2279bada5a9af01cb3e72d894385b36c.ctex"]
+source_file="res://art/atomic_petanque/Sunset.png"
+dest_files=["res://.godot/imported/Sunset.png-c465034866b3c302c7fa4f093488afaf.ctex"]
 
 [params]
 
