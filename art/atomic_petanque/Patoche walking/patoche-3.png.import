@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7x8644of6si0"
-path="res://.godot/imported/patoche-3.png-99c4bf8a9a5d915b02714c5c61f35eb7.ctex"
+path="res://.godot/imported/patoche-3.png-092b60d6d153ebde8966036086877784.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/patoche-3.png"
-dest_files=["res://.godot/imported/patoche-3.png-99c4bf8a9a5d915b02714c5c61f35eb7.ctex"]
+source_file="res://art/atomic_petanque/Patoche walking/patoche-3.png"
+dest_files=["res://.godot/imported/patoche-3.png-092b60d6d153ebde8966036086877784.ctex"]
 
 [params]
 

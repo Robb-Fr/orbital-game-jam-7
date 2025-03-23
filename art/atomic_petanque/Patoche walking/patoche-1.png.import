@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxe5a5u13ip81"
-path="res://.godot/imported/patoche-2.png-2279bada5a9af01cb3e72d894385b36c.ctex"
+uid="uid://egv7t04gy8ip"
+path="res://.godot/imported/patoche-1.png-839a3c0e394e3ade45316c904a54e048.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/patoche-2.png"
-dest_files=["res://.godot/imported/patoche-2.png-2279bada5a9af01cb3e72d894385b36c.ctex"]
+source_file="res://art/atomic_petanque/Patoche walking/patoche-1.png"
+dest_files=["res://.godot/imported/patoche-1.png-839a3c0e394e3ade45316c904a54e048.ctex"]
 
 [params]
 

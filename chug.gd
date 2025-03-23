@@ -3,7 +3,11 @@ extends Node2D
 @export var controller_nb: int
 const MAX_CLICKS = 30
 const CLICKS_PER_STAGE = 10
+##Test without signals but just like it
+var characters = [1,2,3,0]
 
+##Other constant need to clean
+var characters_name = ["Gégé", "Oliv","Patoche","Nico"]
 var timer_start=true
 var can_click = false
 var finished = [0,1,1,1]
@@ -24,7 +28,14 @@ var glass_textures = [
 
 func _ready():
 	$Counting.play()
-	$Player1.play("Gégé")
+	for i in range (0,4):
+		if characters[i]==-1:
+			get_node("Player"+str(i)).visible=false
+			get_node("Glass"+str(i)).visible=false
+		else:
+			var player_name= get_node("Player"+str(i))
+			print_debug(player_name)
+			player_name.play(characters_name[characters[i]])
 	# Cache les sprites au début
 	$"3".visible = false
 	$"2".visible = false
@@ -36,17 +47,19 @@ func _ready():
 func _process(delta):
 	if can_click and Input.is_action_just_pressed("ui_accept"):
 		score += 1
+	if can_click and Input.is_action_just_pressed("ui_accept"):
+		score += 1
 	update_glass_sprite(controller_nb, score)
 	if score >=MAX_CLICKS and finished[controller_nb]==0:
 		#$Burp.play()
-		$Glass1.visible=false
+		get_node("Glass"+str(controller_nb)).visible=false
 		classement.append(controller_nb)
 		finished[controller_nb] = 1
 	if finished == [1, 1, 1, 1]:
 		$Glouglou.stop()
 # Affiche les sprites X et Y
-		$Player1.visible = false
-		$Glass1.visible = false
+		get_node("Player"+str(controller_nb)).visible = false
+		get_node("Glass"+str(controller_nb)).visible = false
 		$Bg.visible = false
 		
 		$Classement.text = "Classement: \n 1. Player"+str(classement[0])
