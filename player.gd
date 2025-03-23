@@ -67,7 +67,7 @@ func _process(delta):
 		thrown_ball.emit(controller_type, position, Vector2(1,0), 150) 
 
 	if !can_move:
-		var arena = get_node("Arena")
+		var arena = get_node("../Arena")
 		var target_direction = (arena.position - position).normalized()
 
 	if velocity.length() > 0:
