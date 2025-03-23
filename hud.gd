@@ -45,7 +45,7 @@ func _on_start_button_pressed():
 func _on_message_timer_timeout():
 	$Message.hide()
 
-func _on_all_players_selected(players):
+func _on_all_players_selected(_players):
 	$HeaderMessage.hide()
 	$PlayerSelects.queue_free()
 	$Background.hide()
@@ -55,6 +55,7 @@ func _on_enter_nb_players_pressed():
 	$NbPlayersBox.hide()
 	$EnterNbPlayers.hide()
 	nb_players = $NbPlayersBox.value
+	$NbPlayersBox.queue_free()
 	for i in range(nb_players):
 		var player_i = select_player_scene.instantiate()
 		player_i.current_char = i

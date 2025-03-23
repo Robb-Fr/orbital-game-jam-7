@@ -31,7 +31,7 @@ func _ready():
 		selection_events.append(action_name)
 	action_events = ["action_" + controllers[controller_type][0]]
 
-func _process(delta):
+func _process(_delta):
 	for e in selection_events:
 		if Input.is_action_just_pressed(e):
 			$HBoxContainer/ChangeCharacter.pressed.emit()
