@@ -25,7 +25,6 @@ func on_selected_character(char_name: String, texture: Texture2D, player_index: 
 	selected_characters[player_index] = [char_name, texture]
 	#print_debug("Set player {0} to use character {1}".format([player_index, char_name]))
 	if selected_characters.count(-1) <= (4 - nb_players):
-		print_debug("Selected characters array: " + str(selected_characters))
 		all_players_selected.emit(selected_characters)
 
 func show_message(text: String):
