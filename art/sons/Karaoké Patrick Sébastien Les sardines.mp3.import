@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba6c5457sy3ie"
+path="res://.godot/imported/Karaoké Patrick Sébastien Les sardines.mp3-67103bceb7c143c41786ba7c5e6a1093.mp3str"
+
+[deps]
+
+source_file="res://art/sons/Karaoké Patrick Sébastien Les sardines.mp3"
+dest_files=["res://.godot/imported/Karaoké Patrick Sébastien Les sardines.mp3-67103bceb7c143c41786ba7c5e6a1093.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vj23itvatyoj" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bikkovipmsnb" path="res://art/dodge_the_creeps/enemyFlyingAlt_1.png" id="2_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dgfs1sioeat6a" path="res://art/dodge_the_creeps/enemyFlyingAlt_2.png" id="3_efxa6"]
-[ext_resource type="PackedScene" uid="uid://cjhl5ye6w3xtj" path="res://arena.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" path="res://arena.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://df4pq16riq740" path="res://art/dodge_the_creeps/enemySwimming_1.png" id="4_dg77c"]
 [ext_resource type="Texture2D" uid="uid://cgxk0n68ujutx" path="res://art/dodge_the_creeps/enemySwimming_2.png" id="5_ycdy4"]
@@ -127,3 +127,6 @@ visible = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_lquwl")
 parameters/looping = true
+
+[connection signal="thrown_ball" from="Player1" to="Arena" method="_on_player_1_thrown_ball"]
+[connection signal="thrown_cochon" from="Player1" to="Arena" method="_on_player_1_thrown_cochon"]

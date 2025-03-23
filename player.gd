@@ -4,6 +4,14 @@ signal boule(s_position: Vector2, s_direction: Vector2)
 
 enum hint_sprites {X, E}
 
+var controller_type: String
+const MAX_NB_BOULES = 5
+var nb_boules = 0
+signal thrown_ball(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
+signal thrown_cochon(controller_type: String, pos: Vector2, dir: Vector2, pow: float)
+var cochon_shot = true
+
+
 @export var MAX_ETHANOL = 10.0 					# [0;10]
 @export var ETHANOL_DECREASE_PER_TICK = 0.005	# float
 @export var ETHANOL_PERFECT_RANGE = 5			# int
@@ -65,6 +73,13 @@ func _process(delta):
 			velocity.y += 1
 		if Input.is_action_pressed("up_" + str(controller_name)):
 			velocity.y -= 1
+			
+		if Input.is_action_just_pressed("spawn_ball_" + controller_type) and cochon_shot:
+			cochon_shot = false
+			thrown_cochon.emit(controller_type, position, Vector2(1,0), 200) 
+		elif Input.is_action_just_pressed("spawn_ball_" + controller_type) and nb_boules < MAX_NB_BOULES:
+			nb_boules += 1
+			thrown_ball.emit(controller_type, position, Vector2(1,0), 150)
 
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
