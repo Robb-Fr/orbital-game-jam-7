@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bw3t5xdmv30bk"]
+[gd_scene load_steps=19 format=4 uid="uid://bjm78rksl2kfi"]
 
 [ext_resource type="Script" uid="uid://l34884ob8da7" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://vj23itvatyoj" path="res://player.tscn" id="1_ig7tw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgxk0n68ujutx" path="res://art/dodge_the_creeps/enemySwimming_2.png" id="5_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://bebc0btvo2i0w" path="res://art/dodge_the_creeps/enemyWalking_1.png" id="6_w48qg"]
 [ext_resource type="Texture2D" uid="uid://xx7eub8lbmvu" path="res://art/dodge_the_creeps/enemyWalking_2.png" id="7_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bxr2onhu8bd0x" path="res://hud_main.tscn" id="11_efxa6"]
 
 [sub_resource type="GDScript" id="GDScript_b3mxk"]
 script/source = "extends RigidBody2D
@@ -120,6 +121,8 @@ rotation = -0.00942476
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
 visible = false
+
+[node name="HUD_main" parent="." instance=ExtResource("11_efxa6")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_lquwl")
