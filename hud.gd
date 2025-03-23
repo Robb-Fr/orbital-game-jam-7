@@ -6,14 +6,20 @@ var nb_players = 2
 # Notifies `Main` node that the button has been pressed
 signal all_players_selected(players: Array[Array])
 
+signal start_minigame
+
+signal all_players_selected_bis(characters: Array)
+
 var selected_characters = [-1, -1, -1, -1]
 
+var mae_char= [-1,-1,-1,-1]
 func _ready():
 	$HeaderMessage.hide()
 	$PlayerSelects.hide()
 	$ScoreLabel.hide()
 	$NbPlayersBox.hide()
 	$EnterNbPlayers.hide()
+	$Musique_festive.play()
 
 func on_selected_character(char_name: String, texture: Texture2D, player_index: int):
 	selected_characters[player_index] = [char_name, texture]
@@ -37,7 +43,6 @@ func update_score(score: int):
 
 func _on_start_button_pressed():
 	$StartButton.hide()
-	$Message.hide()
 	$NbPlayersBox.show()
 	$EnterNbPlayers.show()
 	change_header_message("Select number of players")
@@ -45,15 +50,26 @@ func _on_start_button_pressed():
 func _on_message_timer_timeout():
 	$Message.hide()
 
-func _on_all_players_selected(_players):
+func _on_all_players_selected(players):
+	var i=0
+	for item in players:
+		if item is int:
+			pass
+		else:
+			mae_char[i]=item[0]
+		i=i+1
+	all_players_selected_bis.emit(mae_char)
 	$HeaderMessage.hide()
 	$PlayerSelects.queue_free()
-	$Background.hide()
+	$BG2.hide()
+	$Musique_festive.stop()
 	show_message("Press fast to DRINK")
+	start_minigame.emit()
 
 func _on_enter_nb_players_pressed():
 	$NbPlayersBox.hide()
 	$EnterNbPlayers.hide()
+	$Background.hide()
 	nb_players = $NbPlayersBox.value
 	$NbPlayersBox.queue_free()
 	for i in range(nb_players):

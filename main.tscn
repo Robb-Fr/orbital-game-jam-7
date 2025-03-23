@@ -124,3 +124,6 @@ visible = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_lquwl")
 parameters/looping = true
+
+[connection signal="thrown_ball" from="Player1" to="Arena" method="_on_player_1_thrown_ball"]
+[connection signal="thrown_cochon" from="Player1" to="Arena" method="_on_player_1_thrown_cochon"]

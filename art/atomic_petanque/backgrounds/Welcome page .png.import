@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpk47toj2vaoc"
-path="res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"
+uid="uid://b2klmxp3l1vj8"
+path="res://.godot/imported/Welcome page .png-3d041d9fcd6f6e79c4a38b1c1647decf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/boules/Boule1_a.png"
-dest_files=["res://.godot/imported/Boule1_a.png-d7889ba95c908a987732b1f5f785c705.ctex"]
+source_file="res://art/atomic_petanque/backgrounds/Welcome page .png"
+dest_files=["res://.godot/imported/Welcome page .png-3d041d9fcd6f6e79c4a38b1c1647decf.ctex"]
 
 [params]
 

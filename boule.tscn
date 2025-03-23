@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7sgrdipromhg"]
+
+
+[ext_resource type="Script" uid="uid://cglfoqytrqofj" path="res://boule.gd" id="1_rnyp4"]
+[ext_resource type="Texture2D" uid="uid://cb62qqnt7a05g" path="res://art/atomic_petanque/boules/ombre.png" id="2_rnyp4"]
+[ext_resource type="Texture2D" uid="uid://cpk47toj2vaoc" path="res://art/atomic_petanque/boules/boule1.png" id="2_ywfcg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mt5kb"]
+radius = 12.0
+
+[node name="Boule" type="RigidBody2D"]
+script = ExtResource("1_rnyp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_mt5kb")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(-2, -3)
+texture = ExtResource("2_ywfcg")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, 9)
+scale = Vector2(0.0758555, 0.0314844)
+texture = ExtResource("2_rnyp4")
