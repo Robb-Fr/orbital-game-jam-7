@@ -26,12 +26,14 @@ var half_sprite_size = 100
 var isFacing: positionEnum
 var current_ethanol: float
 var range_ratio: float
+var can_move = true
 
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 	$Range.visible = false
+	$Hint.visible = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -79,7 +81,7 @@ func _process(delta):
 	elif velocity.y != 0:
 		$PlayerSprite.animation = "up"
 		$PlayerSprite.flip_v = velocity.y > 0
-		
+			
 	# STATE MANAGEMENT
 	current_ethanol = clamp(current_ethanol - ETHANOL_DECREASE_PER_TICK / (1.0 - ethanol_decrease_buff), 0, MAX_ETHANOL)
 	range_ratio = 1 / (1 + abs(current_ethanol - ETHANOL_PERFECT_RANGE) ** 2)
@@ -95,18 +97,29 @@ func _on_stadium_entered():
 
 	$Power.visible = true
 	$Range.visible = true
-	updateRangeSize()
+	#updateRangeSize()
 	
-func updateRangeSize():
-	$Range.transform
+#func updateRangeSize():
+#	$Range.transform
 	
 func _on_stadium_exit():
 	$Power.visible = false
 	$Range.visible = false
 
-
 func _on_area_entered(area: Area2D) -> void:
 	if (area is arena):
-		print_debug('this is an arena')
+		$Hint.visible = true
+		
+	if (area is arena_collision):
+		can_move = false
+		$PlayerSprite.stop()
+		
 	if (area is player):
-		print_debug('this is a player')
+		print_debug('player hit')
+
+func _on_area_exited(area: Area2D) -> void:
+	if (area is arena):
+		$Hint.visible = false
+		
+	if (area is arena_collision):
+		can_move = true

@@ -1,0 +1,1 @@
+class_name arena_collision extends Area2D
