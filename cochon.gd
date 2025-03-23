@@ -1,11 +1,10 @@
-extends RigidBody2D
+class_name cochon extends boule
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	scale = Vector2(0.6, 0.6)
+	super._ready()
+	scale = Vector2(0.6, 0.6)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(delta) -> void:
+	super._process(delta)

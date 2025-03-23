@@ -1,9 +1,8 @@
-class_name Boule extends RigidBody2D
+class_name boule extends RigidBody2D
 
-
+@export var controller_type: String
 @export var power: int
 @export var direction: Vector2
-@export var player_nb: int
 @export var initial_position: Vector2
 #var f = true
 
@@ -21,6 +20,13 @@ var shadow
 var shadow_init_scale
 
 var is_thrown
+
+#spin 
+var is_spinning = false
+var spin_center: Vector2
+var spin_radius: float
+var spin_speed: float  # Radians per second
+var current_angle = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,6 +55,8 @@ func _process(delta: float) -> void:
 			is_arcing = false
 			position = target_position
 			sprite.position = Vector2.ZERO
+			is_spinning = true and $"." is not cochon
+		
 		else:
 			# Calculate horizontal movement
 			position = initial_position.lerp(target_position, arc_progress)
@@ -60,11 +68,26 @@ func _process(delta: float) -> void:
 			# Scale shadow based on height
 			var scale_factor = 1.0 - (arc_offset / max_arc_height) * 0.3
 			shadow.scale = scale_factor * shadow_init_scale
+	
+	if is_spinning:
+			current_angle += spin_speed * delta
 			
-	if Input.is_action_just_pressed("tire") and !is_thrown:
+			# Calculate new position on the circle
+			var new_position = spin_center + Vector2(
+				cos(current_angle) * spin_radius,
+				sin(current_angle) * spin_radius
+			)
+			
+			# Update position
+			position = new_position
+			
+			# Make the sprite rotate as it spins
+			sprite.rotation_degrees += 360 * delta	
+			
+	if Input.is_action_just_pressed("tirer" + controller_type) and !is_thrown:
 		is_thrown = true
 		bowling_throw(direction, power)
-	elif Input.is_action_just_pressed("pointe") and !is_thrown:
+	elif Input.is_action_just_pressed("pointer" + controller_type) and !is_thrown:
 		is_thrown = true
 		arc_throw(direction, 2*power)
 	
@@ -94,5 +117,7 @@ func arc_throw(direction, power):
 	target_position = position + direction.normalized() * power
 	max_arc_height = 0.4 * power  
 	arc_duration = 0.003 * power
-	
+	spin_radius = abs(spin_center.distance_to(target_position))
+	spin_speed = remap(spin_radius, 1, 1000, 1, 10)
 	freeze = true
+	
