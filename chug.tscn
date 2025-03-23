@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnypm5petiu8j"]
+[gd_scene load_steps=19 format=3 uid="uid://cnypm5petiu8j"]
 
 [ext_resource type="Script" uid="uid://ue6rtb8v40fu" path="res://chug.gd" id="1_dxvyv"]
 [ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/Patoche walking/patoche-1.png" id="2_5rk26"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://d6i72wk478b2" path="res://art/atomic_petanque/countdown/Countdown2.png" id="10_fbv2u"]
 [ext_resource type="Texture2D" uid="uid://cwo86l2d08yxq" path="res://art/atomic_petanque/countdown/Countdown1.png" id="11_irmjv"]
 [ext_resource type="AudioStream" uid="uid://b356gocbsm81i" path="res://art/sons/counting - 23.03.25 00.52.mp3" id="12_irmjv"]
+[ext_resource type="Texture2D" uid="uid://sabbf22aub2n" path="res://art/atomic_petanque/countdown/CountdownBuvez.png" id="15_xh6so"]
+[ext_resource type="PackedScene" uid="uid://7asofadfxl1i" path="res://hud.tscn" id="17_hisil"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uffwh"]
 animations = [{
@@ -68,7 +70,7 @@ texture = ExtResource("8_whnba")
 position = Vector2(238, 550)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
-animation = &"Oliv"
+animation = &"Patoche"
 
 [node name="Player1" type="AnimatedSprite2D" parent="."]
 position = Vector2(554.439, 551)
@@ -129,6 +131,8 @@ stream = ExtResource("6_uffwh")
 [node name="Burp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_whnba")
 
+[node name="HUD" parent="." instance=ExtResource("17_hisil")]
+
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(621, 356)
 texture = ExtResource("9_irmjv")
@@ -142,8 +146,8 @@ position = Vector2(623, 348)
 texture = ExtResource("11_irmjv")
 
 [node name="Buvez!" type="Sprite2D" parent="."]
-position = Vector2(623, 346)
-texture = ExtResource("5_xlhos")
+position = Vector2(646, 338)
+texture = ExtResource("15_xh6so")
 
 [node name="Countdown" type="Timer" parent="."]
 one_shot = true
@@ -151,4 +155,6 @@ one_shot = true
 [node name="Counting" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_irmjv")
 
+[connection signal="all_players_selected_bis" from="HUD" to="." method="_on_hud_all_players_selected_bis"]
+[connection signal="start_minigame" from="HUD" to="." method="_on_hud_start_minigame"]
 [connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
