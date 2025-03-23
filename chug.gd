@@ -4,6 +4,7 @@ const MAX_CLICKS = 30
 const CLICKS_PER_STAGE = 10
 ##Test without signals but just like it
 
+var change_bg
 
 ##Other constant need to clean
 var for_real=1
@@ -43,6 +44,7 @@ func _ready():
 		print("SceneB attend le signal de SceneA...")
 	else:
 		print("Erreur : Impossible de trouver SceneA")
+	change_bg = preload("res://art/atomic_petanque/Leaderboard.png")
 
 func _process(delta):
 	if can_click and Input.is_action_just_pressed("action_wasd"):
@@ -95,12 +97,14 @@ func _process(delta):
 				get_node("Glass"+str(i)).visible = false
 				text_temp+="\n"+str(i+1)+". Player"+str(classement[i])
 		winner=classement[0]
+		$Bg.texture = change_bg
 		$Bg.visible = false
 
 		$Classement.text = text_temp
 # Affiche la boîte de texte
 		$Classement.visible = true
 		$Button.visible = true
+		$Bg.visible = true
 	
 func update_glass_sprite(controller_nb,score):
 	var glass_sprite = get_node("Glass"+str((controller_nb)))
@@ -176,3 +180,4 @@ func _on_button_pressed() -> void:
 	winner_is.emit(winner) # Replace with function body.
 	$Classement.visible = false
 	$Button.visible = false
+	$Bg.visible = false
