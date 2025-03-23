@@ -55,7 +55,8 @@ func start(pos):
 	$Power.visible = false
 	$Range.visible = false
 	$Hint.visible = false
-
+	$PlayerSprite.play(sprite_name)
+	
 func _ready():
 	screen_size = get_viewport_rect().size
 	range_ratio = 1.0
@@ -74,14 +75,19 @@ func _process(delta):
 			velocity.y += 1
 		if Input.is_action_pressed("up_" + str(controller_name)):
 			velocity.y -= 1
+		
+		var dir = compute_dir()
+		var power = $Power.value
 			
 		if Input.is_action_just_pressed("spawn_ball_" + controller_name) and cochon_shot:
 			cochon_shot = false
-			thrown_cochon.emit(controller_name, position, Vector2(1,0), 200) 
-		elif Input.is_action_just_pressed("spawn_ball_" + controller_name) and nb_boules < MAX_NB_BOULES:
-			nb_boules += 1
-			thrown_ball.emit(controller_name, position, Vector2(1,0), 150)
-
+			thrown_cochon.emit(controller_name, position, dir, power) 
+			on_stadium_exit()
+		elif Input.is_action_just_pressed("spawn_ball_" + controller_name)
+			if nb_boules < MAX_NB_BOULES:
+				nb_boules += 1
+				thrown_ball.emit(controller_name, position, dir, power)
+			on_stadium_exit()
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * speed
 			$PlayerSprite.play()
@@ -148,7 +154,7 @@ func _process(delta):
 			
 	if Input.is_action_just_pressed("scope_" + str(controller_name)):
 		if is_playing:
-			on_shot()
+			#on_shot()
 			on_stadium_exit()
 			
 	# STATE MANAGEMENT
@@ -242,7 +248,7 @@ func on_stadium_exit():
 	$Beam.visible = false
 	#$Marker2D.visible = false
 	
-func on_shot():
+func compute_dir():
 	var target_pos = get_node("../Arena").position
 	var direction = target_pos - transform.origin
 	direction = direction.normalized()
@@ -254,7 +260,5 @@ func on_shot():
 	
 	# TODO TOM: faudrait s'assurer si ça c'est ok hihi	
 	var randomized_direction = direction + direction.normalized() * range_ratio * random_offset
-	print("Vecteur initial : ", direction)
-	print("Vecteur modifié : ", randomized_direction)
 	
-	boule.emit(position, direction)
+	return direction
