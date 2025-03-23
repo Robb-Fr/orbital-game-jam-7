@@ -33,7 +33,6 @@ var glass_textures = [
 ]
 
 func _ready():
-	print_debug("weshx2")
 	var scene_a = get_node("HUD")  # Change selon ta structure
 	# Connecte SceneB au signal de SceneA
 	if scene_a:
@@ -54,30 +53,30 @@ func _process(delta):
 				finished[controller_nb] = 1
 	if can_click and Input.is_action_just_pressed("action_arrows"):
 		if players_char[1] is String:
-			score_0 += 1
+			score_1 += 1
 			controller_nb=1
-			update_glass_sprite(controller_nb, score_0)
-			if score_0 >=MAX_CLICKS and finished[controller_nb]==0:
+			update_glass_sprite(controller_nb, score_1)
+			if score_1 >=MAX_CLICKS and finished[controller_nb]==0:
 				$Burp.play()
 				get_node("Glass"+str(controller_nb)).visible=false
 				classement.append(controller_nb)
 				finished[controller_nb] = 1
 	if can_click and Input.is_action_just_pressed("action_controller_1"):
 		if players_char[2] is String:
-			score_0 += 1
+			score_2 += 1
 			controller_nb=2
-			update_glass_sprite(controller_nb, score_0)
-			if score_0 >=MAX_CLICKS and finished[controller_nb]==0:
+			update_glass_sprite(controller_nb, score_2)
+			if score_2 >=MAX_CLICKS and finished[controller_nb]==0:
 				$Burp.play()
 				get_node("Glass"+str(controller_nb)).visible=false
 				classement.append(controller_nb)
 				finished[controller_nb] = 1
 	if can_click and Input.is_action_just_pressed("action_controller_2"):
 		if players_char[3] is String:
-			score_0 += 1
+			score_3 += 1
 			controller_nb=3
-			update_glass_sprite(controller_nb, score_0)
-			if score_0 >=MAX_CLICKS and finished[controller_nb]==0:
+			update_glass_sprite(controller_nb, score_3)
+			if score_3 >=MAX_CLICKS and finished[controller_nb]==0:
 				$Burp.play()
 				get_node("Glass"+str(controller_nb)).visible=false
 				classement.append(controller_nb)
@@ -100,8 +99,7 @@ func _process(delta):
 	
 
 func update_glass_sprite(controller_nb,score):
-	var glass_sprite = get_node("Glass"+str((controller_nb)))  # Replace "X" with the correct path if necessary
-	print_debug("The score is:"+ str(score))
+	var glass_sprite = get_node("Glass"+str((controller_nb)))
 	# Ensure it's a Sprite2D node
 	if glass_sprite is Sprite2D:
 		var new_texture_index = min(score/5, glass_textures.size() - 1)
@@ -110,7 +108,6 @@ func update_glass_sprite(controller_nb,score):
 
 
 func _on_countdown_timeout() -> void:
-	print_debug("timeout")
 	# Vérifie quelle étape du compte à rebours est en cours
 	if	timer_start:
 		timer_start=false
@@ -134,7 +131,6 @@ func _on_countdown_timeout() -> void:
 	elif $"Buvez!".visible:
 		$"Buvez!".visible = false
 		can_click = true  # Permet de cliquer après le compte à rebours
-		print("Le compte à rebours est terminé, vous pouvez maintenant cliquer!")
 		$Glouglou.play()
 
 func _start_scene():
@@ -157,10 +153,7 @@ func _start_scene():
 	$Countdown.start()
 	
 func _on_hud_start_minigame() -> void:
-	print_debug("alors laaa")
 	_start_scene()# Replace with function body.
 
 func _on_hud_all_players_selected_bis(characters: Array) -> void:
 	players_char=characters
-	print_debug("Youpi")
-	print_debug(players_char) # Replace with function body.

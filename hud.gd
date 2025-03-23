@@ -60,7 +60,6 @@ func _on_all_players_selected(players):
 		else:
 			mae_char[i]=item[0]
 		i=i+1
-	print_debug(mae_char)
 	all_players_selected_bis.emit(mae_char)
 	$HeaderMessage.hide()
 	$PlayerSelects.queue_free()
@@ -68,7 +67,6 @@ func _on_all_players_selected(players):
 	$Musique_festive.stop()
 	show_message("Press fast to DRINK")
 	start_minigame.emit()
-	print_debug("MAIS BORDEL")
 
 func _on_enter_nb_players_pressed():
 	$NbPlayersBox.hide()
