@@ -3,9 +3,10 @@ extends Node2D
 const MAX_CLICKS = 30
 const CLICKS_PER_STAGE = 10
 ##Test without signals but just like it
-var characters = [3,1,-1,-1]
+
 
 ##Other constant need to clean
+var for_real=1
 var winner
 var players_char=[]
 var players_ready = false
@@ -31,6 +32,9 @@ var glass_textures = [
 	preload("res://art/atomic_petanque/Pastis-6.png"),
 	preload("res://art/atomic_petanque/Pastis-7.png"),
 ]
+signal lets_play
+signal player_chars_are(Array)
+signal winner_is(id)
 
 func _ready():
 	var scene_a = get_node("HUD")  # Change selon ta structure
@@ -81,12 +85,12 @@ func _process(delta):
 				get_node("Glass"+str(controller_nb)).visible=false
 				classement.append(controller_nb)
 				finished[controller_nb] = 1
-	if finished == [1, 1, 1, 1]:
+	if finished == [1, 1, 1, 1] and for_real==1:
 		$Glouglou.stop()
 # Affiche les sprites X et Y
 		var text_temp="Classement: "
 		for i in range (0,4):
-			if characters[i]!=-1:
+			if players_char[i] is String:
 				get_node("Player"+str(i)).visible = false
 				get_node("Glass"+str(i)).visible = false
 				text_temp+="\n"+str(i+1)+". Player"+str(classement[i])
@@ -96,6 +100,7 @@ func _process(delta):
 		$Classement.text = text_temp
 # Affiche la boîte de texte
 		$Classement.visible = true
+		$Button.visible = true
 	
 
 func update_glass_sprite(controller_nb,score):
@@ -157,3 +162,17 @@ func _on_hud_start_minigame() -> void:
 
 func _on_hud_all_players_selected_bis(characters: Array) -> void:
 	players_char=characters
+
+func hide_all_sprites():
+	for node in get_children():
+		if node is Sprite2D or node is AnimatedSprite2D:
+			node.hide()
+
+
+func _on_button_pressed() -> void:
+	for_real=0
+	print_debug("pressed mon sang")
+	player_chars_are.emit(players_char) #i.e. ["Gégé","Oliv",-1,-1]
+	winner_is.emit(winner) # Replace with function body.
+	$Classement.visible = false
+	$Button.visible = false

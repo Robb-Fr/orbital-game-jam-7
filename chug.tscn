@@ -63,67 +63,59 @@ animations = [{
 script = ExtResource("1_dxvyv")
 
 [node name="Bg" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(645, 364)
 texture = ExtResource("8_whnba")
 
 [node name="Player0" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(238, 550)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
 animation = &"Patoche"
 
 [node name="Player1" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(554.439, 551)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
 animation = &"Oliv"
 
 [node name="Player2" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(860.439, 553)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
 animation = &"Oliv"
 
 [node name="Player3" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(1145.44, 550)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uffwh")
 animation = &"Oliv"
 
 [node name="Glass0" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(184, 613)
 rotation = 0.356047
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_xlhos")
 
 [node name="Glass1" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(506.439, 617)
 rotation = 0.356047
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_xlhos")
 
 [node name="Glass2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(800.439, 613)
 rotation = 0.356047
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_xlhos")
 
 [node name="Glass3" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1083.44, 619)
 rotation = 0.356047
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_xlhos")
 
 [node name="Classement" type="Label" parent="."]
+visible = false
 offset_right = 1277.0
 offset_bottom = 718.0
 theme_override_font_sizes/font_size = 64
@@ -134,33 +126,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Glouglou" type="AudioStreamPlayer2D" parent="."]
-visible = false
 stream = ExtResource("6_uffwh")
 
 [node name="Burp" type="AudioStreamPlayer2D" parent="."]
-visible = false
 stream = ExtResource("7_whnba")
 
 [node name="HUD" parent="." instance=ExtResource("17_hisil")]
-visible = false
 
 [node name="3" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(621, 356)
 texture = ExtResource("9_irmjv")
 
 [node name="2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(621, 350)
 texture = ExtResource("10_fbv2u")
 
 [node name="1" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(623, 348)
 texture = ExtResource("11_irmjv")
 
 [node name="Buvez!" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(646, 338)
 texture = ExtResource("15_xh6so")
 
@@ -168,10 +153,10 @@ texture = ExtResource("15_xh6so")
 one_shot = true
 
 [node name="Counting" type="AudioStreamPlayer2D" parent="."]
-visible = false
 stream = ExtResource("12_irmjv")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 535.0
 offset_top = 636.0
 offset_right = 772.0
@@ -181,3 +166,4 @@ text = "Allez c'est partit"
 [connection signal="all_players_selected_bis" from="HUD" to="." method="_on_hud_all_players_selected_bis"]
 [connection signal="start_minigame" from="HUD" to="." method="_on_hud_start_minigame"]
 [connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

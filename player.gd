@@ -70,15 +70,15 @@ func _process(delta):
 		nb_boules += 1
 		thrown_ball.emit(controller_type, position, Vector2(1,0), 150) 
 
-	if !can_move:
-		var arena = get_node("Arena")
-		var target_direction = (arena.position - position).normalized()
-		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
-			$PlayerSprite.play()
-		else:
-			$PlayerSprite.stop()
-		move_and_slide()
+	#if !can_move:
+		#var arena = get_node("Arena")
+		#var target_direction = (arena.position - position).normalized()
+		#if velocity.length() > 0:
+			#velocity = velocity.normalized() * speed
+			#$PlayerSprite.play()
+		#else:
+			#$PlayerSprite.stop()
+		#move_and_slide()
 		
 		if velocity.x != 0:
 			$PlayerSprite.animation = "walk"
@@ -88,12 +88,12 @@ func _process(delta):
 			$PlayerSprite.animation = "up"
 			$PlayerSprite.flip_v = velocity.y > 0
 		
-	if Input.is_action_just_pressed("pressX" + str(controller_nb)):
-		if !is_playing && $Hint.visible:
-			$Hint.visible = false
-			on_stadium_entered()
-		elif is_playing:
-			on_stadium_exit()
+	#if Input.is_action_just_pressed("pressX" + str(controller_nb)):
+		#if !is_playing && $Hint.visible:
+			#$Hint.visible = false
+			#on_stadium_entered()
+		#elif is_playing:
+			#on_stadium_exit()
 			
 	# STATE MANAGEMENT
 	current_ethanol = clamp(current_ethanol - ETHANOL_DECREASE_PER_TICK / (1.0 - ethanol_decrease_buff), 0, MAX_ETHANOL)
