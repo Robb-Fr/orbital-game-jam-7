@@ -71,6 +71,7 @@ func _on_enter_nb_players_pressed():
 	$EnterNbPlayers.hide()
 	$Background.hide()
 	nb_players = $NbPlayersBox.value
+	$NbPlayersBox.queue_free()
 	for i in range(nb_players):
 		var player_i = select_player_scene.instantiate()
 		player_i.current_char = i
