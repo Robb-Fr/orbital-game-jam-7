@@ -102,7 +102,6 @@ func _process(delta):
 		$Classement.visible = true
 		$Button.visible = true
 	
-
 func update_glass_sprite(controller_nb,score):
 	var glass_sprite = get_node("Glass"+str((controller_nb)))
 	# Ensure it's a Sprite2D node

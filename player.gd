@@ -23,6 +23,7 @@ var cochon_shot = true
 
 @export var speed = 400
 @export var controller_name: String
+@export var player_name: String
 @export var ethanol_bar_ref: ProgressBar
 @export var ethanol_range = 1.5 				# float
 @export var ethanol_decrease_buff = 0.0 		# [0;1]
@@ -30,6 +31,7 @@ var cochon_shot = true
 	hint_sprites.X: x_sprite,
 	hint_sprites.E: e_sprite
 }
+@export var sprite_name: String
 
 # TODO: implement below features
 @export var precision: float					# ???
