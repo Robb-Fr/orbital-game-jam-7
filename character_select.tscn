@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://6vo508oj4fra"]
+[gd_scene load_steps=7 format=3 uid="uid://6vo508oj4fra"]
 
 [ext_resource type="Script" uid="uid://cbe60qhkvs4a0" path="res://character_select.gd" id="1_6yhuy"]
 [ext_resource type="Texture2D" uid="uid://cpqyqgr7php2f" path="res://art/atomic_petanque/players/gégé_moustache_de_feu.png" id="1_tddig"]
 [ext_resource type="FontFile" uid="uid://b00c3n5argown" path="res://fonts/Xolonium-Regular.ttf" id="2_5duen"]
+[ext_resource type="Texture2D" uid="uid://dskvcub7tgbhq" path="res://art/atomic_petanque/controller_icons/wasd.png" id="4_aoibv"]
+
+[sub_resource type="Shortcut" id="Shortcut_mn8d4"]
+
+[sub_resource type="Shortcut" id="Shortcut_aoibv"]
 
 [node name="CharacterSelect" type="Control"]
 custom_minimum_size = Vector2(0, 110)
@@ -36,6 +41,11 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="ControllerIcon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_aoibv")
+expand_mode = 3
+
 [node name="CharacterIcon" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_tddig")
@@ -54,12 +64,14 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5duen")
 theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_mn8d4")
 text = "Change character"
 
 [node name="SelectCharacter" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5duen")
 theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_aoibv")
 text = "Select"
 
 [connection signal="pressed" from="HBoxContainer/ChangeCharacter" to="." method="_on_change_character_pressed"]

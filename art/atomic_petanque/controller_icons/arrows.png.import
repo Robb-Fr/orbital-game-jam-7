@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7x8644of6si0"
-path="res://.godot/imported/patoche-3.png-99c4bf8a9a5d915b02714c5c61f35eb7.ctex"
+uid="uid://jbompvmbm3rp"
+path="res://.godot/imported/arrows.png-0c3d79c65fe72206fcd48f7d8c60048c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/patoche-3.png"
-dest_files=["res://.godot/imported/patoche-3.png-99c4bf8a9a5d915b02714c5c61f35eb7.ctex"]
+source_file="res://art/atomic_petanque/controller_icons/arrows.png"
+dest_files=["res://.godot/imported/arrows.png-0c3d79c65fe72206fcd48f7d8c60048c.ctex"]
 
 [params]
 
