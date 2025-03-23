@@ -102,56 +102,12 @@ scale = Vector2(0.294889, 0.175333)
 position = Vector2(646, 341)
 
 [node name="Player1" parent="." instance=ExtResource("1_ig7tw")]
-MAX_ETHANOL = 10.0
-ETHANOL_DECREASE_PER_TICK = 0.01
-ETHANOL_PERFECT_RANGE = 5
-DILATATION_FACTOR = 2
-speed = 400
-controller_nb = 0
-ethanol_range = 1.5
-ethanol_decrease_buff = 0.0
-precision = 0.0
-increasedSpeed = 0.0
-imperturbability = 0.0
 
 [node name="Player2" parent="." instance=ExtResource("1_ig7tw")]
-MAX_ETHANOL = 10.0
-ETHANOL_DECREASE_PER_TICK = 0.01
-ETHANOL_PERFECT_RANGE = 5
-DILATATION_FACTOR = 2
-speed = 400
-controller_nb = 0
-ethanol_range = 1.5
-ethanol_decrease_buff = 0.0
-precision = 0.0
-increasedSpeed = 0.0
-imperturbability = 0.0
 
 [node name="Player3" parent="." instance=ExtResource("1_ig7tw")]
-MAX_ETHANOL = 10.0
-ETHANOL_DECREASE_PER_TICK = 0.01
-ETHANOL_PERFECT_RANGE = 5
-DILATATION_FACTOR = 2
-speed = 400
-controller_nb = 0
-ethanol_range = 1.5
-ethanol_decrease_buff = 0.0
-precision = 0.0
-increasedSpeed = 0.0
-imperturbability = 0.0
 
 [node name="Player4" parent="." instance=ExtResource("1_ig7tw")]
-MAX_ETHANOL = 10.0
-ETHANOL_DECREASE_PER_TICK = 0.01
-ETHANOL_PERFECT_RANGE = 5
-DILATATION_FACTOR = 2
-speed = 400
-controller_nb = 0
-ethanol_range = 1.5
-ethanol_decrease_buff = 0.0
-precision = 0.0
-increasedSpeed = 0.0
-imperturbability = 0.0
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2(-12.3408, 7.73125)

@@ -24,7 +24,8 @@ func init_player_controller():
 func new_game():
 	init_player_controller()
 	$Player1.start(gen_start_position())
-	$Player2.start(gen_start_position())
+	#$Player2.start(gen_start_position())
 	#$Player3.start(gen_start_position())
 	#$Player4.start(gen_start_position())
+	#$Player1.not_instanciated()
 	$Music.play()
