@@ -82,7 +82,7 @@ func _process(delta):
 		elif velocity.y != 0:
 			$PlayerSprite.animation = "up"
 			$PlayerSprite.flip_v = velocity.y > 0
-		
+
 	if Input.is_action_just_pressed("pressX_" + controller_type):
 		if !is_playing && $Hint.visible:
 			$Hint.visible = false

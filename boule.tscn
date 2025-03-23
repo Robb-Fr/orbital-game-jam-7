@@ -1,5 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7sgrdipromhg"]
 
+
 [ext_resource type="Script" uid="uid://cglfoqytrqofj" path="res://boule.gd" id="1_rnyp4"]
 [ext_resource type="Texture2D" uid="uid://cb62qqnt7a05g" path="res://art/atomic_petanque/boules/ombre.png" id="2_rnyp4"]
 [ext_resource type="Texture2D" uid="uid://cpk47toj2vaoc" path="res://art/atomic_petanque/boules/boule1.png" id="2_ywfcg"]

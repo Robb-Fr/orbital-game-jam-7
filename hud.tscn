@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://7asofadfxl1i"]
+[gd_scene load_steps=9 format=3 uid="uid://7asofadfxl1i"]
 
 [ext_resource type="FontFile" uid="uid://b00c3n5argown" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://bfqmjnbve3osf" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="PackedScene" uid="uid://6vo508oj4fra" path="res://character_select.tscn" id="2_8sq4i"]
-[ext_resource type="Texture2D" uid="uid://c1m3sbukojmvy" path="res://art/atomic_petanque/backgrounds/background_orange.png" id="3_640wx"]
+[ext_resource type="Texture2D" uid="uid://21ss41user36" path="res://art/atomic_petanque/Sunset.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://b2klmxp3l1vj8" path="res://art/atomic_petanque/backgrounds/Welcome page .png" id="3_a2258"]
 [ext_resource type="AudioStream" uid="uid://ba6c5457sy3ie" path="res://art/sons/Karaoké Patrick Sébastien Les sardines.mp3" id="5_a2258"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8sq4i"]
@@ -17,13 +18,18 @@ events = [SubResource("InputEventKey_8sq4i")]
 script = ExtResource("1_64ctp")
 select_player_scene = ExtResource("2_8sq4i")
 
+[node name="BG2" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_1xsix")
+
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_640wx")
+texture = ExtResource("3_a2258")
 
 [node name="HeaderMessage" type="Label" parent="."]
 anchors_preset = 5
@@ -63,13 +69,12 @@ anchor_bottom = 0.5
 offset_left = -360.0
 offset_top = -120.0
 offset_right = 360.0
-offset_bottom = 120.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 72
-text = "Atomic Petank"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -115,10 +120,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -48.0
-offset_right = -17.4375
-offset_bottom = -17.0
+offset_left = -512.0
+offset_top = -44.0
+offset_right = -425.438
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
@@ -136,10 +141,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -232.0
-offset_right = 74.0
-offset_bottom = -166.0
+offset_left = 286.0
+offset_top = -390.0
+offset_right = 432.0
+offset_bottom = -324.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
