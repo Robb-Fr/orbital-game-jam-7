@@ -13,7 +13,6 @@ signal all_players_selected_bis(characters: Array)
 var selected_characters = [-1, -1, -1, -1]
 
 var mae_char= [-1,-1,-1,-1]
-
 func _ready():
 	$HeaderMessage.hide()
 	$PlayerSelects.hide()
@@ -44,7 +43,6 @@ func update_score(score: int):
 
 func _on_start_button_pressed():
 	$StartButton.hide()
-	$Message.hide()
 	$NbPlayersBox.show()
 	$EnterNbPlayers.show()
 	change_header_message("Select number of players")
@@ -60,20 +58,20 @@ func _on_all_players_selected(players):
 		else:
 			mae_char[i]=item[0]
 		i=i+1
-	print_debug(mae_char)
 	all_players_selected_bis.emit(mae_char)
 	$HeaderMessage.hide()
 	$PlayerSelects.queue_free()
-	$Background.hide()
+	$BG2.hide()
 	$Musique_festive.stop()
 	show_message("Press fast to DRINK")
 	start_minigame.emit()
-	print_debug("MAIS BORDEL")
 
 func _on_enter_nb_players_pressed():
 	$NbPlayersBox.hide()
 	$EnterNbPlayers.hide()
+	$Background.hide()
 	nb_players = $NbPlayersBox.value
+	$NbPlayersBox.queue_free()
 	for i in range(nb_players):
 		var player_i = select_player_scene.instantiate()
 		player_i.current_char = i

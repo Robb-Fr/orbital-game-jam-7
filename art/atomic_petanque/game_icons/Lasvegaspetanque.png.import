@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk7j25pc86ipq"
-path="res://.godot/imported/x.png-f412a3470b4dbe317a57664b8c073746.ctex"
+uid="uid://dujgy5jxooqug"
+path="res://.godot/imported/Lasvegaspetanque.png-70734d4c2ea999a4194d13612b999eff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/atomic_petanque/controllers/x.png"
-dest_files=["res://.godot/imported/x.png-f412a3470b4dbe317a57664b8c073746.ctex"]
+source_file="res://art/atomic_petanque/game_icons/Lasvegaspetanque.png"
+dest_files=["res://.godot/imported/Lasvegaspetanque.png-70734d4c2ea999a4194d13612b999eff.ctex"]
 
 [params]
 

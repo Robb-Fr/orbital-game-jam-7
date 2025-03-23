@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnypm5petiu8j"]
+[gd_scene load_steps=19 format=3 uid="uid://do5bc0hsfwnd5"]
 
 [ext_resource type="Script" uid="uid://ue6rtb8v40fu" path="res://chug.gd" id="1_dxvyv"]
 [ext_resource type="Texture2D" uid="uid://egv7t04gy8ip" path="res://art/atomic_petanque/Patoche walking/patoche-1.png" id="2_5rk26"]
@@ -155,6 +155,15 @@ one_shot = true
 [node name="Counting" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_irmjv")
 
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 535.0
+offset_top = 636.0
+offset_right = 772.0
+offset_bottom = 671.0
+text = "Allez c'est partit"
+
 [connection signal="all_players_selected_bis" from="HUD" to="." method="_on_hud_all_players_selected_bis"]
 [connection signal="start_minigame" from="HUD" to="." method="_on_hud_start_minigame"]
 [connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
